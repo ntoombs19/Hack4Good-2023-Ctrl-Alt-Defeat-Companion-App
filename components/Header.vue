@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-full">
+  <div class="hidden sm:block min-h-full">
     <Disclosure as="nav" class="border-b border-gray-200 bg-white" v-slot="{ open }">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex h-16 justify-between">
@@ -18,6 +18,17 @@
               <span class="sr-only">View notifications</span>
               <BellIcon class="h-6 w-6" aria-hidden="true" />
             </button>
+          </div>
+        </div>
+      </div>
+    </Disclosure>
+  </div>
+  <div class="sm:hidden">
+    <Disclosure as="nav" class="border-b border-gray-200 bg-white">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex h-16 justify-between">
+          <div class="ml-6 flex items-center">
+            <button type="button" class="relative rounded-full bg-white p-1 text-gray-500 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Sign Out</button>  
           </div>
         </div>
       </div>

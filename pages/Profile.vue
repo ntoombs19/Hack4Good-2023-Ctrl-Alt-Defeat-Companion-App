@@ -1,5 +1,5 @@
 <template>
-  <Header class="hidden sm:block" :navigation="navigation" />
+  <Header :navigation="navigation" />
   <div class="p-5">
     <ProfileForm :profile="profile" />
   </div>
