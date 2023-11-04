@@ -43,7 +43,7 @@ import { BellAlertIcon, ClockIcon, LifebuoyIcon, UserIcon } from '@heroicons/vue
 import { ChevronRightIcon } from '@heroicons/vue/20/solid'
 import {GET_SCHEDULE} from '~/graphql/users'
 
-const statuses = {a
+const statuses = {
   Upcoming: 'text-gray-500 bg-gray-100/10',
   Completed: 'text-green-400 bg-green-400/10',
 }
