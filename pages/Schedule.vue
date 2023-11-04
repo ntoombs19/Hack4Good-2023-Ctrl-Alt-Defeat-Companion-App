@@ -32,6 +32,7 @@
         <ChevronRightIcon class="h-5 w-5 flex-none text-gray-400" v-if="deployment.status === 'Take Quiz'" aria-hidden="true" />
       </li>
     </ul>
+  </div>
   <div class="p-5">
     <!--<pre>{{data}}</pre>-->
   </div>
