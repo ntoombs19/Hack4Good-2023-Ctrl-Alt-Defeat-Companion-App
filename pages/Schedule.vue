@@ -1,5 +1,6 @@
 <template>
   <Header class="hidden sm:block" :navigation="navigation" />
+
   <div class="md:flex md:items-center md:justify-between mt-10 ml-9 mb-5">
     <div class="min-w-0 flex-1">
       <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">Schedule</h2>
@@ -31,15 +32,18 @@
         <ChevronRightIcon class="h-5 w-5 flex-none text-gray-400" v-if="deployment.status === 'Take Quiz'" aria-hidden="true" />
       </li>
     </ul>
+  <div class="p-5">
+    <!--<pre>{{data}}</pre>-->
   </div>
   <MobileNav :navigation="navigation" />
 </template>
 
 <script setup>
-import { BellAlertIcon, ClockIcon, LifebuoyIcon, UserIcon, ArrowRightIcon } from '@heroicons/vue/24/outline'
+import { BellAlertIcon, ClockIcon, LifebuoyIcon, UserIcon } from '@heroicons/vue/24/outline'
 import { ChevronRightIcon } from '@heroicons/vue/20/solid'
+import {GET_SCHEDULE} from '~/graphql/users'
 
-const statuses = {
+const statuses = {a
   Upcoming: 'text-gray-500 bg-gray-100/10',
   Completed: 'text-green-400 bg-green-400/10',
 }
@@ -89,8 +93,6 @@ const deployments = [
   },
 ]
 
-console.log(deployments[0].completed)
-
 const icons = reactive({
   alert: BellAlertIcon,
   help: LifebuoyIcon,
@@ -114,4 +116,20 @@ const navigation = [
   {name: 'Profile', href: '/profile', current: false, icon: icons.profile},
   {name: 'Schedule', href: '/schedule', current: false, icon: icons.schedule},
 ]
+
+const { data } = await useAsyncQuery(GET_SCHEDULE, {
+  filters: {
+    program: {
+      cohort: {
+        users: {
+          username: {
+            eq: "joeJohnson"
+          }
+        }
+      }
+    }
+  }
+})
+console.log(data)
+
 </script>

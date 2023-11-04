@@ -15,6 +15,7 @@
 
 <script setup>
 import { BellAlertIcon, ClockIcon, LifebuoyIcon, UserIcon } from '@heroicons/vue/24/outline'
+import {GET_SCHEDULE} from "~/graphql/users/index.js";
 
 const icons = reactive({
   alert: BellAlertIcon,
@@ -39,4 +40,20 @@ const navigation = [
   { name: 'Profile', href: '/profile', current: false, icon: icons.profile },
   { name: 'Schedule', href: '/schedule', current: false, icon: icons.schedule },
 ]
+const { data } = await useAsyncQuery(GET_SCHEDULE, {
+  filters: {
+    program: {
+      cohort: {
+        users: {
+          username: {
+            eq: "joeJohnson"
+          }
+        }
+      }
+    }
+  }
+})
+
+console.log(data)
+
 </script>
