@@ -28,7 +28,7 @@
                 <div class="flex w-0 flex-1 items-center">
                   <ArrowTopRightOnSquareIcon class="h-5 w-5 flex-shrink-0 text-gray-400" aria-hidden="true" />
                   <div class="ml-4 flex min-w-0 flex-1 gap-2">
-                    <span class="flex-shrink-0">Resources</span>
+                    <span class="flex-shrink-0">Good Dads Website</span>
                   </div>
                 </div>
                 <div class="ml-4 flex-shrink-0">
