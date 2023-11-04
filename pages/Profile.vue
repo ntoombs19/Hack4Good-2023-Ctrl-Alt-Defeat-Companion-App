@@ -86,12 +86,55 @@
     <div class="py-10">
       <header>
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h1 class="text-3xl font-bold leading-tight tracking-tight text-gray-900">Dashboard</h1>
+          <h1 class="text-3xl font-bold leading-tight tracking-tight text-gray-900">Profile</h1>
         </div>
       </header>
       <main>
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-          <!-- Your content -->
+
+          <div class="mt-3">
+            <label>First Name:</label>
+            <div
+                class="relative w-full cursor-default overflow-hidden rounded-lg bg-white text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm"
+            >
+              <input v-model="user.firstName" class="w-full border-none py-2 pl-3 pr-10 text-sm leading-5 text-gray-900 focus:ring-0" @input="user.firstName = $event.target.value" />
+            </div>
+          </div>
+
+          <div class="mt-3">
+            <label class="mt-10">Last Name:</label>
+            <div
+                class="relative w-full cursor-default overflow-hidden rounded-lg bg-white text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm"
+            >
+              <input v-model="user.lastName" class="w-full border-none py-2 pl-3 pr-10 text-sm leading-5 text-gray-900 focus:ring-0" @input="user.lastName = $event.target.value" />
+            </div>
+          </div>
+
+          <div class="mt-3">
+            <label class="mt-10">Email:</label>
+            <div
+                class="relative w-full cursor-default overflow-hidden rounded-lg bg-white text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm"
+            >
+              <input v-model="user.email" class="w-full border-none py-2 pl-3 pr-10 text-sm leading-5 text-gray-900 focus:ring-0" @input="user.email = $event.target.value" />
+            </div>
+          </div>
+
+          <div class="mt-3">
+            <label class="mt-10">Phone Number:</label>
+            <div
+                class="relative w-full cursor-default overflow-hidden rounded-lg bg-white text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm"
+            >
+              <input v-model="user.phoneNumber" class="w-full border-none py-2 pl-3 pr-10 text-sm leading-5 text-gray-900 focus:ring-0" @input="user.phoneNumber = $event.target.value" />
+            </div>
+          </div>
+
+          <div class="inset-0 flex items-center justify-center mt-5">
+              <button
+                  type="button"
+                  @click="saveProfile"
+                  class="rounded-md bg-black/20 px-4 py-2 text-sm font-medium text-white hover:bg-black/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75"
+              >Save</button>
+          </div>
         </div>
       </main>
     </div>
@@ -99,24 +142,24 @@
 </template>
 
 <script setup>
-import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/vue/24/outline'
+import {
+} from '@headlessui/vue'
+import Heading from "~/components/Heading.vue";
 
-const user = {
-  name: 'Tom Cook',
-  email: 'tom@example.com',
+let user = {
+  firstName: '',
+  lastName: '',
+  email: '',
+  phoneNumber: '',
   imageUrl:
     'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
 }
-const navigation = [
-  { name: 'Alerts', href: '/alerts', current: false },
-  { name: 'Help', href: '/help', current: false },
-  { name: 'Profile', href: '/profile', current: true },
-  { name: 'Schedule', href: '/schedule', current: false },
-]
-const userNavigation = [
-  { name: 'Your Profile', href: '#' },
-  { name: 'Settings', href: '#' },
-  { name: 'Sign out', href: '#' },
-]
+
+function saveProfile(){
+  console.log("Save profile: ");
+  console.log(user.firstName);
+  console.log(user.lastName);
+  console.log(user.email);
+  console.log(user.phoneNumber);
+}
 </script>
