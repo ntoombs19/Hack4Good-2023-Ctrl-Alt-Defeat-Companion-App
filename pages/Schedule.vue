@@ -2,7 +2,7 @@
 
 <template>
   <div>
-    Alerts
+    Schedule
   </div>
 </template>
 

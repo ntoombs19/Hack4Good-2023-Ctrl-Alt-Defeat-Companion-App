@@ -2,7 +2,7 @@
 
 <template>
   <div>
-    Alerts
+    Help
   </div>
 </template>
 

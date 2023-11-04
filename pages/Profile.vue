@@ -2,7 +2,7 @@
 
 <template>
   <div>
-    Alerts
+    Profile
   </div>
 </template>
 
