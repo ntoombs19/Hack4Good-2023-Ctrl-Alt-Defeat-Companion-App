@@ -139,26 +139,52 @@
             </div>
           </div>
 
-          <div v-for="child in profile.children" class="w-full rounded overflow-hidden shadow-lg">
+          <div class="w-full rounded overflow-hidden shadow-lg">
             <div class="border-gray-200 bg-white px-4 py-5 sm:px-6">
               <h3 class="text-lg font-semibold leading-6 text-gray-900">Children</h3>
-              <div>
-                <div class="mt-3 mb-1 flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-                  <input v-model="child.name" type="text" name="clientName" id="clientName" autocomplete="clientName" class="flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="Name" />
-                  <input v-model="child.age" type="number" id="points" name="points" step="1" class="flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6">
+              <div v-for="child in profile.children" class="w-full rounded overflow-hidden shadow-lg">
+                <div class="mt-3 border-gray-200 bg-white px-4 py-5 sm:px-6">
+                  <div>
+                    <div class="mt-3 mb-1 flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                      <span class="ml-1 mt-2 block text-sm font-medium leading-6 text-gray-900">Name:</span>
+                      <input v-model="child.name" type="text" name="childName" id="childName" autocomplete="childName" class="flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="Name" />
+                      <span class="mt-2 block text-sm font-medium leading-6 text-gray-900">Age:</span>
+                      <input v-model="child.age" type="number" id="childAge" name="childAge" step="1" class="flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6">
+                    </div>
+                    <label for="username" class="block text-sm font-medium leading-6 text-gray-900">DOB</label>
+                    <div class="mt-2">
+                      <input class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" type="date" id="start" name="trip-start" v-model="child.dob" min="2023-01-01" max="2025-12-31" />
+                      <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                      </div>
+                    </div>
+                    <label for="contactStatus" class="block text-sm font-medium leading-6 text-gray-900">Contact Status</label>
+                    <select id="contactStatus" name="contactStatus" class="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                      <option v-for="contact in child.contactStatus">{{contact}}</option>
+                    </select>
+                  </div>
                 </div>
-                <div class="relative mt-2 rounded-md shadow-sm">
-                </div>
-                <label for="location" class="block text-sm font-medium leading-6 text-gray-900">Role</label>
-                <select id="location" name="location" class="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                  <option v-for="contact in child.contactStatus">{{contact}}</option>
-                </select>
+              </div>
+              <div class="mt-3">
+                <button class="rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50" @click="$emit('addChild')">Add Child</button>
               </div>
             </div>
           </div>          
 
-          {{ profile.children }}
-
+          <div>
+            {{ profile.children }}
+          </div>
+          <div>
+            {{ profile.childSupportPerMonth }}
+          </div>
+          <div>
+            {{ profile.maritalStatus }}
+          </div>
+          <div>
+            {{ profile.ethnicity }}
+          </div>
+          <div>
+            {{ profile.ethnicity }}
+          </div>
           <div>
             <label for="price" class="block text-sm font-medium leading-6 text-gray-900">How much do you pay in child support per month?</label>
             <div class="relative mt-2 rounded-md shadow-sm">
@@ -327,6 +353,13 @@
 <script setup>
 import { UserCircleIcon } from '@heroicons/vue/24/solid'
 import { ref } from 'vue'
+
+const emit = defineEmits(['onTesting'])
+ 
+const callOnTesting = () => {
+    const  obj = {color: 'blue', length: '77 feet'}
+    emit('onTesting', obj)
+}
 
 const count = ref(0)
 

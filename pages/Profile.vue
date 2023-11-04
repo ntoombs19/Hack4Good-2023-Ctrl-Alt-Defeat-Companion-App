@@ -1,13 +1,32 @@
 <template>
   <Header :navigation="navigation" />
   <div class="p-5">
-    <ProfileForm :profile="profile" />
+    <ProfileForm @add-child="addChild" :profile="profile" />
   </div>
   <MobileNav :navigation="navigation" />
 </template>
 
 <script setup>
 import { BellAlertIcon, ClockIcon, LifebuoyIcon, UserIcon } from '@heroicons/vue/24/outline'
+const emit = defineEmits(['addChild'])
+
+function buttonClick() {
+  emit('addChild')
+}
+
+const addChild = () => {
+  profile.value.children.push({
+    name: '',
+    age: '',
+    dob: '',
+    contactStatus: [
+      '',
+      '',
+      '',
+      '',
+    ]
+  })
+}
 
 const icons = reactive({
   alert: BellAlertIcon,
@@ -45,7 +64,7 @@ const profile = ref({
   children: [{
     name: 'Timmy',
     age: '4',
-    dob: '10/1/2019',
+    dob: '2018-10-01',
     contactStatus: [
       'custody',
       'visitation',
@@ -67,8 +86,7 @@ const profile = ref({
     hispanic: false,
     nativeHawaiianIslander: false,
     white: false,
-  },
-  imageUrl: '',
+  }
 })
 const navigation = [
   { name: 'Alerts', href: '/alerts', current: false, icon: icons.alert },
