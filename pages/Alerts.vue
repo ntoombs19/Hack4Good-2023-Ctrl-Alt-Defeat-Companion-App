@@ -1,5 +1,15 @@
 <template>
   <Header class="hidden sm:block" :navigation="navigation" />
+  <div class="md:flex md:items-center md:justify-between mt-10 ml-9 mb-5">
+    <div class="min-w-0 flex-1">
+      <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">Alerts</h2>
+    </div>
+  </div>
+  <div class="md:flex md:items-center md:justify-between mt-10 ml-9 mb-5">
+    <div class="min-w-0 flex-1">
+      <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">Welcome, Dad!</h2>
+    </div>
+  </div>
   <MobileNav :navigation="navigation" />
 </template>
 

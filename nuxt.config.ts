@@ -14,6 +14,7 @@ export default defineNuxtConfig({
     clients: {
       default: {
         httpEndpoint: `${process.env.STRAPI_URL}${process.env.STRAPI_GRAPHQL_ENDPOINT}` || 'http://localhost:1337/graphql',
+        tokenStorage: 'cookie',
       },
     },
   },
