@@ -22,15 +22,15 @@ const currentPage = {
 
 const profile = {
   clientName: 'Tom Cook',
-  date: '',
-  addressOne: '',
-  addressTwo: '',
-  city: '',
+  date: '2018-07-22',
+  addressOne: '123 Street Rd',
+  addressTwo: 'APT 123',
+  city: 'Springfield',
   state: 'MO',
-  zip: '',
-  employer: '',
-  mainPhone: '',
-  workPhone: '',
+  zip: '65807',
+  employer: 'Good Dads',
+  mainPhone: '(417) 860-1111',
+  workPhone: '(417) 860-2222',
   otherNumber: '',
   email: '',
   interestedParty: {
@@ -53,7 +53,7 @@ const profile = {
       none: false,
     }
   }],
-  childSupportPerMonth: '',
+  childSupportPerMonth: 200,
   maritalStatus: {
     married: false,
     engaged: false,
