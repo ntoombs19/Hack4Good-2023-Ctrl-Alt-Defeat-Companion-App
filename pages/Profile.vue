@@ -14,18 +14,18 @@ function buttonClick() {
   emit('addChild')
 }
 
+const computedChildrenArray = computed(() => {
+  return [...profile.children.value]; // Copy the original array
+});
+
 const addChild = () => {
-  profile.value.children.push({
+  const newChild = {
     name: '',
     age: '',
     dob: '',
-    contactStatus: [
-      '',
-      '',
-      '',
-      '',
-    ]
-  })
+    contactStatus: [],
+  };
+  profile.value.children.push(newChild);
 }
 
 const icons = reactive({

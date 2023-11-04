@@ -15,7 +15,7 @@
           <div class="sm:col-span-4">
             <label for="username" class="block text-sm font-medium leading-6 text-gray-900">Date</label>
             <div class="mt-2">
-              <input class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" type="date" id="start" name="trip-start" v-model="profile.date" min="2023-01-01" max="2025-12-31" />
+              <input class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" type="date" id="start" name="trip-start" v-model="profile.date" />
               <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
               </div>
             </div>
@@ -153,7 +153,7 @@
                     </div>
                     <label for="username" class="block text-sm font-medium leading-6 text-gray-900">DOB</label>
                     <div class="mt-2">
-                      <input class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" type="date" id="start" name="trip-start" v-model="child.dob" min="2023-01-01" max="2025-12-31" />
+                      <input class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" type="date" id="start" name="trip-start" v-model="child.dob" />
                       <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
                       </div>
                     </div>
@@ -168,23 +168,8 @@
                 <button class="rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50" @click="$emit('addChild')">Add Child</button>
               </div>
             </div>
-          </div>          
-
-          <div>
-            {{ profile.children }}
           </div>
-          <div>
-            {{ profile.childSupportPerMonth }}
-          </div>
-          <div>
-            {{ profile.maritalStatus }}
-          </div>
-          <div>
-            {{ profile.ethnicity }}
-          </div>
-          <div>
-            {{ profile.ethnicity }}
-          </div>
+          
           <div>
             <label for="price" class="block text-sm font-medium leading-6 text-gray-900">How much do you pay in child support per month?</label>
             <div class="relative mt-2 rounded-md shadow-sm">
@@ -196,6 +181,16 @@
                 <span class="text-gray-500 sm:text-sm" id="price-currency">USD</span>
               </div>
             </div>
+          </div>
+
+          <div>
+            {{ profile.maritalStatus }}
+          </div>
+          <div>
+            {{ profile.ethnicity }}
+          </div>
+          <div>
+            {{ profile.ethnicity }}
           </div>
 
 
