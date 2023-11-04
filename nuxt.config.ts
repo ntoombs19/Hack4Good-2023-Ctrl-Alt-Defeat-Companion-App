@@ -23,5 +23,9 @@ export default defineNuxtConfig({
     static: {
       baseURL: process.env.STRAPI_URL,
     }
-  }
+  },
+  components: {
+    global: true,
+    dirs: ['~/components']
+  },
 })

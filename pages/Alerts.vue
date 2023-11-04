@@ -15,7 +15,7 @@
 
 <script setup>
 import { BellAlertIcon, ClockIcon, LifebuoyIcon, UserIcon } from '@heroicons/vue/24/outline'
-import {GET_SCHEDULE} from "~/graphql/users/index.js";
+import {GET_SCHEDULE} from "~/graphql/users";
 
 const icons = reactive({
   alert: BellAlertIcon,

@@ -118,19 +118,7 @@ const navigation = [
   {name: 'Schedule', href: '/schedule', current: false, icon: icons.schedule},
 ]
 
-const { data } = await useAsyncQuery(GET_SCHEDULE, {
-  filters: {
-    program: {
-      cohort: {
-        users: {
-          username: {
-            eq: "joeJohnson"
-          }
-        }
-      }
-    }
-  }
-})
+const { data } = await useAsyncQuery(GET_SCHEDULE)
 console.log(data)
 
 </script>
