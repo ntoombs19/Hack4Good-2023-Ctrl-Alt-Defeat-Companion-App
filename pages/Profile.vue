@@ -71,9 +71,9 @@ const profile = {
   imageUrl: '',
 }
 const navigation = [
-  { name: 'Alerts', href: '/alerts', current: true, icon: icons.alert },
+  { name: 'Alerts', href: '/alerts', current: false, icon: icons.alert },
   { name: 'Help', href: '/help', current: false, icon: icons.help },
-  { name: 'Profile', href: '/profile', current: false, icon: icons.profile },
+  { name: 'Profile', href: '/profile', current: true, icon: icons.profile },
   { name: 'Schedule', href: '/schedule', current: false, icon: icons.schedule },
 ]
 </script>

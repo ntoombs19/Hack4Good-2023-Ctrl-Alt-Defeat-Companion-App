@@ -24,9 +24,9 @@ const user = {
     'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
 }
 const navigation = [
-  { name: 'Alerts', href: '/alerts', current: true, icon: icons.alert },
+  { name: 'Alerts', href: '/alerts', current: false, icon: icons.alert },
   { name: 'Help', href: '/help', current: false, icon: icons.help },
   { name: 'Profile', href: '/profile', current: false, icon: icons.profile },
-  { name: 'Schedule', href: '/schedule', current: false, icon: icons.schedule },
+  { name: 'Schedule', href: '/schedule', current: true, icon: icons.schedule },
 ]
 </script>
