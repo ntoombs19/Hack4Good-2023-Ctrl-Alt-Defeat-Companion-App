@@ -18,112 +18,112 @@
         </div>
       </div>
 
-          <div class="sm:col-span-4">
-            <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email address</label>
-            <div class="mt-2">
-              <input v-model="profile.email" id="email" name="email" type="email" autocomplete="email" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
-            </div>
-          </div>
-
-          <div class="sm:col-span-3">
-            <label for="country" class="block text-sm font-medium leading-6 text-gray-900">Country</label>
-            <div class="mt-2">
-              <select id="country" name="country" autocomplete="country-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
-                <option>United States</option>
-                <option>Canada</option>
-                <option>Mexico</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="col-span-full">
-            <label for="street-address" class="block text-sm font-medium leading-6 text-gray-900">Street address</label>
-            <div class="mt-2">
-              <input v-model="profile.addressOne" type="text" name="street-address" id="street-address" autocomplete="street-address" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
-            </div>
-          </div>
-
-          <div class="col-span-full">
-            <label for="street-address" class="block text-sm font-medium leading-6 text-gray-900">Street address 2</label>
-            <div class="mt-2">
-              <input v-model="profile.addressTwo" type="text" name="street-address" id="street-address" autocomplete="street-address" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
-            </div>
-          </div>
-
-          <div class="sm:col-span-2 sm:col-start-1">
-            <label for="city" class="block text-sm font-medium leading-6 text-gray-900">City</label>
-            <div class="mt-2">
-              <input v-model="profile.city" type="text" name="city" id="city" autocomplete="address-level2" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
-            </div>
-          </div>
-
-          <div class="sm:col-span-2">
-            <label for="region" class="block text-sm font-medium leading-6 text-gray-900">State / Province</label>
-            <div class="mt-2">
-              <input v-model="profile.state" type="text" name="region" id="region" autocomplete="address-level1" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
-            </div>
-          </div>
-
-          <div class="sm:col-span-2">
-            <label for="postal-code" class="block text-sm font-medium leading-6 text-gray-900">ZIP / Postal code</label>
-            <div class="mt-2">
-              <input v-model="profile.zip" type="text" name="postal-code" id="postal-code" autocomplete="postal-code" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
-            </div>
-          </div>
-          
-          <div class="sm:col-span-2">
-            <label for="postal-code" class="block text-sm font-medium leading-6 text-gray-900">Employer</label>
-            <div class="mt-2">
-              <input v-model="profile.employer" type="text" name="postal-code" id="postal-code" autocomplete="postal-code" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
-            </div>
-          </div>
-
-          <div>
-            <label for="phone-number" class="block text-sm font-medium leading-6 text-gray-900">Home/Cell Phone</label>
-            <div class="relative mt-2 rounded-md shadow-sm">
-              <div class="absolute inset-y-0 left-0 flex items-center">
-                <label for="country" class="sr-only">Country</label>
-                <select id="country" name="country" autocomplete="country" class="h-full rounded-md border-0 bg-transparent py-0 pl-3 pr-7 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm">
-                  <option>US</option>
-                  <option>CA</option>
-                  <option>EU</option>
-                </select>
-              </div>
-              <input v-model="profile.mainPhone" type="text" name="phone-number" id="phone-number" class="block w-full rounded-md border-0 py-1.5 pl-16 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="+1 (555) 987-6543" />
-            </div>
-          </div>
-
-          <div>
-            <label for="phone-number" class="block text-sm font-medium leading-6 text-gray-900">Work Phone</label>
-            <div class="relative mt-2 rounded-md shadow-sm">
-              <div class="absolute inset-y-0 left-0 flex items-center">
-                <label for="country" class="sr-only">Country</label>
-                <select id="country" name="country" autocomplete="country" class="h-full rounded-md border-0 bg-transparent py-0 pl-3 pr-7 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm">
-                  <option>US</option>
-                  <option>CA</option>
-                  <option>EU</option>
-                </select>
-              </div>
-              <input v-model="profile.workPhone" type="text" name="phone-number" id="phone-number" class="block w-full rounded-md border-0 py-1.5 pl-16 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="+1 (555) 987-6543" />
-            </div>
-          </div>
-
-          <div>
-            <label for="phone-number" class="block text-sm font-medium leading-6 text-gray-900">Other Phone</label>
-            <div class="relative mt-2 rounded-md shadow-sm">
-              <div class="absolute inset-y-0 left-0 flex items-center">
-                <label for="country" class="sr-only">Country</label>
-                <select id="country" name="country" autocomplete="country" class="h-full rounded-md border-0 bg-transparent py-0 pl-3 pr-7 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm">
-                  <option>US</option>
-                  <option>CA</option>
-                  <option>EU</option>
-                </select>
-              </div>
-              <input v-model="profile.otherPhone" type="text" name="phone-number" id="phone-number" class="block w-full rounded-md border-0 py-1.5 pl-16 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="+1 (555) 987-6543" />
-            </div>
-          </div>
-
+      <div class="sm:col-span-4">
+        <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email address</label>
+        <div class="mt-2">
+          <input v-model="profile.email" id="email" name="email" type="email" autocomplete="email" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
         </div>
+      </div>
+
+      <div class="sm:col-span-3">
+        <label for="country" class="block text-sm font-medium leading-6 text-gray-900">Country</label>
+        <div class="mt-2">
+          <select id="country" name="country" autocomplete="country-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
+            <option>United States</option>
+            <option>Canada</option>
+            <option>Mexico</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-span-full">
+        <label for="street-address" class="block text-sm font-medium leading-6 text-gray-900">Street address</label>
+        <div class="mt-2">
+          <input v-model="profile.addressOne" type="text" name="street-address" id="street-address" autocomplete="street-address" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+        </div>
+      </div>
+
+      <div class="col-span-full">
+        <label for="street-address" class="block text-sm font-medium leading-6 text-gray-900">Street address 2</label>
+        <div class="mt-2">
+          <input v-model="profile.addressTwo" type="text" name="street-address" id="street-address" autocomplete="street-address" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+        </div>
+      </div>
+
+      <div class="sm:col-span-2 sm:col-start-1">
+        <label for="city" class="block text-sm font-medium leading-6 text-gray-900">City</label>
+        <div class="mt-2">
+          <input v-model="profile.city" type="text" name="city" id="city" autocomplete="address-level2" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+        </div>
+      </div>
+
+      <div class="sm:col-span-2">
+        <label for="region" class="block text-sm font-medium leading-6 text-gray-900">State / Province</label>
+        <div class="mt-2">
+          <input v-model="profile.state" type="text" name="region" id="region" autocomplete="address-level1" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+        </div>
+      </div>
+
+      <div class="sm:col-span-2">
+        <label for="postal-code" class="block text-sm font-medium leading-6 text-gray-900">ZIP / Postal code</label>
+        <div class="mt-2">
+          <input v-model="profile.zip" type="text" name="postal-code" id="postal-code" autocomplete="postal-code" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+        </div>
+      </div>
+      
+      <div class="sm:col-span-2">
+        <label for="postal-code" class="block text-sm font-medium leading-6 text-gray-900">Employer</label>
+        <div class="mt-2">
+          <input v-model="profile.employer" type="text" name="postal-code" id="postal-code" autocomplete="postal-code" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+        </div>
+      </div>
+
+      <div>
+        <label for="phone-number" class="block text-sm font-medium leading-6 text-gray-900">Home/Cell Phone</label>
+        <div class="relative mt-2 rounded-md shadow-sm">
+          <div class="absolute inset-y-0 left-0 flex items-center">
+            <label for="country" class="sr-only">Country</label>
+            <select id="country" name="country" autocomplete="country" class="h-full rounded-md border-0 bg-transparent py-0 pl-3 pr-7 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm">
+              <option>US</option>
+              <option>CA</option>
+              <option>EU</option>
+            </select>
+          </div>
+          <input v-model="profile.mainPhone" type="text" name="phone-number" id="phone-number" class="block w-full rounded-md border-0 py-1.5 pl-16 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="+1 (555) 987-6543" />
+        </div>
+      </div>
+
+      <div>
+        <label for="phone-number" class="block text-sm font-medium leading-6 text-gray-900">Work Phone</label>
+        <div class="relative mt-2 rounded-md shadow-sm">
+          <div class="absolute inset-y-0 left-0 flex items-center">
+            <label for="country" class="sr-only">Country</label>
+            <select id="country" name="country" autocomplete="country" class="h-full rounded-md border-0 bg-transparent py-0 pl-3 pr-7 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm">
+              <option>US</option>
+              <option>CA</option>
+              <option>EU</option>
+            </select>
+          </div>
+          <input v-model="profile.workPhone" type="text" name="phone-number" id="phone-number" class="block w-full rounded-md border-0 py-1.5 pl-16 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="+1 (555) 987-6543" />
+        </div>
+      </div>
+
+      <div>
+        <label for="phone-number" class="block text-sm font-medium leading-6 text-gray-900">Other Phone</label>
+        <div class="relative mt-2 rounded-md shadow-sm">
+          <div class="absolute inset-y-0 left-0 flex items-center">
+            <label for="country" class="sr-only">Country</label>
+            <select id="country" name="country" autocomplete="country" class="h-full rounded-md border-0 bg-transparent py-0 pl-3 pr-7 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm">
+              <option>US</option>
+              <option>CA</option>
+              <option>EU</option>
+            </select>
+          </div>
+          <input v-model="profile.otherPhone" type="text" name="phone-number" id="phone-number" class="block w-full rounded-md border-0 py-1.5 pl-16 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="+1 (555) 987-6543" />
+        </div>
+      </div>
+
+    </div>
 
     
       
