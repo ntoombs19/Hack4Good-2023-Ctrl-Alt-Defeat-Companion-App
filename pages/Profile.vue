@@ -1,9 +1,8 @@
 <template>
   <div class="mb-20">
     <Header :navigation="navigation" />
-    {{ data }}
     <div class="p-5">
-      <ProfileForm @add-child="addChild" :profile="profile" />
+      <ProfileForm @add-interested-party="onAddInterestedParty" @add-child="addChild" :profile="profile" />
     </div>
     <button type="button" class="ml-10 rounded-md bg-red-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">Log Out</button>
     <MobileNav :navigation="navigation" />
@@ -16,7 +15,7 @@ import { GET_PROFILE_INFO } from '~/graphql/users'
 import { getUserId } from "~/helper/getUserId";
 const userId = getUserId();
 console.log(userId)
-const emit = defineEmits(['addChild'])
+const emit = defineEmits(['addChild', 'onAddInterestedParty'])
 
 function buttonClick() {
   emit('addChild')
@@ -34,6 +33,19 @@ const addChild = () => {
     contactStatus: [],
   };
   profile.value.children.push(newChild);
+}
+
+const onAddInterestedParty = () => {
+  const newInterestedParty = {
+    name: '',
+    phone: '',
+    role: [
+      'Probation Officer',
+      'Parole Officer',
+      'Case Worker'
+    ]
+  };
+  profile.value.interestedParties.push(newInterestedParty);
 }
 
 const icons = reactive({
@@ -62,7 +74,7 @@ const profile = ref({
   workPhone: '(417) 123-2222',
   otherNumber: '(417) 123-3333',
   email: 'your@email.com',
-  interestedParty: [{
+  interestedParties: [{
     name: 'John',
     phone: '(417) 123-3333',
     role: [

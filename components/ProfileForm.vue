@@ -139,12 +139,12 @@
       <div class="w-full rounded overflow-hidden shadow-lg">
         <div class="border-gray-200 bg-white px-4 py-5 sm:px-6">
           <h3 class="text-lg font-semibold leading-6 text-gray-900">Interested Party</h3>
-          <div v-for="child in profile.children" class="w-full rounded overflow-hidden shadow-lg"></div>
-            <div class="w-full rounded overflow-hidden shadow-lg">
+          <div v-for="party in profile.interestedParties" class="w-full rounded overflow-hidden shadow-lg">
+            <div class="mt-3 w-full rounded overflow-hidden shadow-lg">
               <div class="border-gray-200 bg-white px-4 py-5 sm:px-6">
                 <div>
                   <div class="mt-3 mb-1 flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-                    <input v-model="profile.interestedParty.name" type="text" name="clientName" id="clientName" autocomplete="clientName" class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="Name" />
+                    <input v-model="party.name" type="text" name="clientName" id="clientName" autocomplete="clientName" class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="Name" />
                   </div>
                   <div class="relative mt-2 rounded-md shadow-sm">
                   <div class="absolute inset-y-0 left-0 flex items-center">
@@ -155,15 +155,19 @@
                       <option>EU</option>
                     </select>
                   </div>
-                  <input v-model="profile.interestedParty.phone" type="text" name="phone-number" id="phone-number" class="mb-2 block w-full rounded-md border-0 py-1.5 pl-16 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="+1 (555) 987-6543" />
+                  <input v-model="party.phone" type="text" name="phone-number" id="phone-number" class="mb-2 block w-full rounded-md border-0 py-1.5 pl-16 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="+1 (555) 987-6543" />
                   </div>
                   <label for="location" class="block text-sm font-medium leading-6 text-gray-900">Role</label>
                   <select id="location" name="location" class="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                    <option v-for="role in profile.interestedParty.role">{{role}}</option>
+                    <option v-for="role in party.role">{{role}}</option>
                   </select>
                 </div>
-                </div>
+              </div>
             </div>
+          </div>
+          <div class="mt-3">
+            <button class="rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50" @click="$emit('addInterestedParty')">Add Interested Party</button>
+          </div>
         </div>
       </div>
 
@@ -211,7 +215,7 @@
         </div>
       </div>
 
-      <div>
+      <!-- <div>
         {{ profile.maritalStatus }}
       </div>
       <div>
@@ -219,24 +223,7 @@
       </div>
       <div>
         {{ profile.ethnicity }}
-      </div>
-
-
-      <div class="col-span-full">
-        <label for="about" class="block text-sm font-medium leading-6 text-gray-900">About</label>
-        <div class="mt-2">
-          <textarea id="about" name="about" rows="3" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
-        </div>
-        <p class="mt-3 text-sm leading-6 text-gray-600">Write a few sentences about yourself.</p>
-      </div>
-
-      <div class="col-span-full">
-        <label for="photo" class="block text-sm font-medium leading-6 text-gray-900">Photo</label>
-        <div class="mt-2 flex items-center gap-x-3">
-          <UserCircleIcon class="h-12 w-12 text-gray-300" aria-hidden="true" />
-          <button type="button" class="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">Change</button>
-        </div>
-      </div>
+      </div> -->
     </div>
       
     
@@ -246,20 +233,6 @@
 <script setup>
 import { UserCircleIcon } from '@heroicons/vue/24/solid'
 import { ref } from 'vue'
-
-const emit = defineEmits(['onTesting'])
- 
-const callOnTesting = () => {
-    const  obj = {color: 'blue', length: '77 feet'}
-    emit('onTesting', obj)
-}
-
-const count = ref(0)
-
-const incrementCount = () => {
-  count.value++;
-  console.log(count.value)
-}
 
 const props = defineProps(['profile'])
 

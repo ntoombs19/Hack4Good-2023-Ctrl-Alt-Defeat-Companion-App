@@ -1,5 +1,4 @@
 <template>
-  <pre>{{ data }}</pre>
   <div class="hidden sm:block min-h-full">
     <Disclosure as="nav" class="bg-gray-800" v-slot="{ open }">
     <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
