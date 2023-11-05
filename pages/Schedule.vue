@@ -164,13 +164,13 @@ for(let i = 1; i < scheduleInfo.value.classes.data.length; i++){
         date: scheduleDate.toISOString().split('T')[0],
         time: '10:00am',
         status: status,
-        statusText: 'Due 01/01/2024',
+        statusText: 'Due ' + scheduleDate.toISOString().split('T')[0],
         description: 'Quiz',
         completed: quizCompleted,
       });
 
-  deployments.sort(function(a, b) {
-    return new Date(a.date) < new Date(b.date);
+  deployments.sort(function(a, b){
+    return new Date(a.date) - new Date(b.date);
   });
 }
 

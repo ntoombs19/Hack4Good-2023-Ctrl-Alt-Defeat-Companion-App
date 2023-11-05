@@ -118,5 +118,5 @@ const navigation = [
   { name: 'Schedule', href: '/schedule', current: false, icon: icons.schedule },
   { name: 'Quizzes', href: '/quizzes', current: false, icon: icons.quizzes },
 ]
-const { data } = await useAsyncQuery(GET_PROFILE_INFO, { id: userId })
+//const { data } = await useAsyncQuery(GET_PROFILE_INFO, { id: userId })
 </script>
