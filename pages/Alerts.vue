@@ -10,6 +10,16 @@
       <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">Welcome, Dad!</h2>
     </div>
   </div>
+  <ul role="list" class="divide-y divide-gray-100 mx-10">
+    <li class="flex justify-between gap-x-6 py-5">
+      <div class="flex min-w-0 gap-x-4">
+        <div class="min-w-0 flex-auto">
+          <p class="text-sm font-semibold leading-6 text-gray-900">No new notifications</p>
+          <p class="mt-1 truncate text-xs leading-5 text-gray-500">You're all caught up!</p>
+        </div>
+      </div>
+    </li>
+  </ul>
   <MobileNav :navigation="navigation" />
 </template>
 
