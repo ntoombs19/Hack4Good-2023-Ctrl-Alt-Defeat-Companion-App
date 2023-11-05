@@ -874,7 +874,6 @@ export type PaginationArg = {
 
 export type Program = {
   __typename?: 'Program';
-  class?: Maybe<ClassEntityResponse>;
   classes?: Maybe<ClassRelationResponseCollection>;
   cohort?: Maybe<CohortEntityResponse>;
   completed?: Maybe<Scalars['Boolean']['output']>;
@@ -913,7 +912,6 @@ export type ProgramEntityResponseCollection = {
 
 export type ProgramFiltersInput = {
   and?: InputMaybe<Array<InputMaybe<ProgramFiltersInput>>>;
-  class?: InputMaybe<ClassFiltersInput>;
   classes?: InputMaybe<ClassFiltersInput>;
   cohort?: InputMaybe<CohortFiltersInput>;
   completed?: InputMaybe<BooleanFilterInput>;
@@ -929,7 +927,6 @@ export type ProgramFiltersInput = {
 };
 
 export type ProgramInput = {
-  class?: InputMaybe<Scalars['ID']['input']>;
   classes?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
   cohort?: InputMaybe<Scalars['ID']['input']>;
   completed?: InputMaybe<Scalars['Boolean']['input']>;
@@ -1165,13 +1162,21 @@ export type Quiz = {
   name?: Maybe<Scalars['String']['output']>;
   publishedAt?: Maybe<Scalars['DateTime']['output']>;
   quiz_questions?: Maybe<QuizQuestionRelationResponseCollection>;
-  quiz_result?: Maybe<QuizResultEntityResponse>;
+  quiz_results?: Maybe<QuizResultRelationResponseCollection>;
   updatedAt?: Maybe<Scalars['DateTime']['output']>;
 };
 
 
 export type QuizQuiz_QuestionsArgs = {
   filters?: InputMaybe<QuizQuestionFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  publicationState?: InputMaybe<PublicationState>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type QuizQuiz_ResultsArgs = {
+  filters?: InputMaybe<QuizResultFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
   publicationState?: InputMaybe<PublicationState>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -1203,7 +1208,7 @@ export type QuizFiltersInput = {
   or?: InputMaybe<Array<InputMaybe<QuizFiltersInput>>>;
   publishedAt?: InputMaybe<DateTimeFilterInput>;
   quiz_questions?: InputMaybe<QuizQuestionFiltersInput>;
-  quiz_result?: InputMaybe<QuizResultFiltersInput>;
+  quiz_results?: InputMaybe<QuizResultFiltersInput>;
   updatedAt?: InputMaybe<DateTimeFilterInput>;
 };
 
@@ -1211,7 +1216,7 @@ export type QuizInput = {
   name?: InputMaybe<Scalars['String']['input']>;
   publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
   quiz_questions?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
-  quiz_result?: InputMaybe<Scalars['ID']['input']>;
+  quiz_results?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
 };
 
 export type QuizQuestion = {
@@ -1219,6 +1224,7 @@ export type QuizQuestion = {
   createdAt?: Maybe<Scalars['DateTime']['output']>;
   publishedAt?: Maybe<Scalars['DateTime']['output']>;
   question?: Maybe<Scalars['String']['output']>;
+  quiz?: Maybe<QuizEntityResponse>;
   quiz_question_answers?: Maybe<QuizQuestionAnswerRelationResponseCollection>;
   updatedAt?: Maybe<Scalars['DateTime']['output']>;
 };
@@ -1237,6 +1243,7 @@ export type QuizQuestionAnswer = {
   createdAt?: Maybe<Scalars['DateTime']['output']>;
   isCorrectAnswer?: Maybe<Scalars['Boolean']['output']>;
   publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  quiz_question?: Maybe<QuizQuestionEntityResponse>;
   updatedAt?: Maybe<Scalars['DateTime']['output']>;
 };
 
@@ -1266,6 +1273,7 @@ export type QuizQuestionAnswerFiltersInput = {
   not?: InputMaybe<QuizQuestionAnswerFiltersInput>;
   or?: InputMaybe<Array<InputMaybe<QuizQuestionAnswerFiltersInput>>>;
   publishedAt?: InputMaybe<DateTimeFilterInput>;
+  quiz_question?: InputMaybe<QuizQuestionFiltersInput>;
   updatedAt?: InputMaybe<DateTimeFilterInput>;
 };
 
@@ -1273,6 +1281,7 @@ export type QuizQuestionAnswerInput = {
   answer?: InputMaybe<Scalars['String']['input']>;
   isCorrectAnswer?: InputMaybe<Scalars['Boolean']['input']>;
   publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  quiz_question?: InputMaybe<Scalars['ID']['input']>;
 };
 
 export type QuizQuestionAnswerRelationResponseCollection = {
@@ -1305,6 +1314,7 @@ export type QuizQuestionFiltersInput = {
   or?: InputMaybe<Array<InputMaybe<QuizQuestionFiltersInput>>>;
   publishedAt?: InputMaybe<DateTimeFilterInput>;
   question?: InputMaybe<StringFilterInput>;
+  quiz?: InputMaybe<QuizFiltersInput>;
   quiz_question_answers?: InputMaybe<QuizQuestionAnswerFiltersInput>;
   updatedAt?: InputMaybe<DateTimeFilterInput>;
 };
@@ -1312,6 +1322,7 @@ export type QuizQuestionFiltersInput = {
 export type QuizQuestionInput = {
   publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
   question?: InputMaybe<Scalars['String']['input']>;
+  quiz?: InputMaybe<Scalars['ID']['input']>;
   quiz_question_answers?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
 };
 
@@ -1333,6 +1344,7 @@ export type QuizResult = {
   quiz?: Maybe<QuizEntityResponse>;
   quiz_question_answers?: Maybe<QuizQuestionAnswerRelationResponseCollection>;
   updatedAt?: Maybe<Scalars['DateTime']['output']>;
+  users_permissions_user?: Maybe<UsersPermissionsUserEntityResponse>;
 };
 
 
@@ -1371,6 +1383,7 @@ export type QuizResultFiltersInput = {
   quiz?: InputMaybe<QuizFiltersInput>;
   quiz_question_answers?: InputMaybe<QuizQuestionAnswerFiltersInput>;
   updatedAt?: InputMaybe<DateTimeFilterInput>;
+  users_permissions_user?: InputMaybe<UsersPermissionsUserFiltersInput>;
 };
 
 export type QuizResultInput = {
@@ -1378,6 +1391,7 @@ export type QuizResultInput = {
   publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
   quiz?: InputMaybe<Scalars['ID']['input']>;
   quiz_question_answers?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  users_permissions_user?: InputMaybe<Scalars['ID']['input']>;
 };
 
 export type QuizResultRelationResponseCollection = {
@@ -1753,6 +1767,7 @@ export type UsersPermissionsUser = {
   interested_parties?: Maybe<InterestedPartyRelationResponseCollection>;
   provider?: Maybe<Scalars['String']['output']>;
   quiz_results?: Maybe<QuizResultRelationResponseCollection>;
+  quiz_statuses?: Maybe<QuizResultRelationResponseCollection>;
   role?: Maybe<UsersPermissionsRoleEntityResponse>;
   updatedAt?: Maybe<Scalars['DateTime']['output']>;
   username: Scalars['String']['output'];
@@ -1776,6 +1791,14 @@ export type UsersPermissionsUserInterested_PartiesArgs = {
 
 
 export type UsersPermissionsUserQuiz_ResultsArgs = {
+  filters?: InputMaybe<QuizResultFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  publicationState?: InputMaybe<PublicationState>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type UsersPermissionsUserQuiz_StatusesArgs = {
   filters?: InputMaybe<QuizResultFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
   publicationState?: InputMaybe<PublicationState>;
@@ -1833,6 +1856,7 @@ export type UsersPermissionsUserFiltersInput = {
   password?: InputMaybe<StringFilterInput>;
   provider?: InputMaybe<StringFilterInput>;
   quiz_results?: InputMaybe<QuizResultFiltersInput>;
+  quiz_statuses?: InputMaybe<QuizResultFiltersInput>;
   resetPasswordToken?: InputMaybe<StringFilterInput>;
   role?: InputMaybe<UsersPermissionsRoleFiltersInput>;
   updatedAt?: InputMaybe<DateTimeFilterInput>;
@@ -1868,6 +1892,7 @@ export type UsersPermissionsUserInput = {
   password?: InputMaybe<Scalars['String']['input']>;
   provider?: InputMaybe<Scalars['String']['input']>;
   quiz_results?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  quiz_statuses?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
   resetPasswordToken?: InputMaybe<Scalars['String']['input']>;
   role?: InputMaybe<Scalars['ID']['input']>;
   username?: InputMaybe<Scalars['String']['input']>;
@@ -1877,6 +1902,27 @@ export type UsersPermissionsUserRelationResponseCollection = {
   __typename?: 'UsersPermissionsUserRelationResponseCollection';
   data: Array<UsersPermissionsUserEntity>;
 };
+
+export type QueryQueryVariables = Exact<{
+  id?: InputMaybe<Scalars['ID']['input']>;
+}>;
+
+
+export type QueryQuery = { __typename?: 'Query', usersPermissionsUser?: { __typename?: 'UsersPermissionsUserEntityResponse', data?: { __typename?: 'UsersPermissionsUserEntity', id?: string | null, attributes?: { __typename?: 'UsersPermissionsUser', CellPhoneNumber?: string | null, City?: string | null, Employer?: string | null, Ethnicity?: Enum_Userspermissionsuser_Ethnicity | null, FirstName?: string | null, HomePhoneNumber?: string | null, LastName?: string | null, MaritalStatus?: Enum_Userspermissionsuser_Maritalstatus | null, MonthlyChildSupport?: number | null, StreetAddress?: string | null, WorkPhoneNumber?: string | null, Zipcode?: string | null, email: string } | null } | null } | null };
+
+export type QueryQuizQueryVariables = Exact<{
+  filters?: InputMaybe<QuizQuestionAnswerFiltersInput>;
+}>;
+
+
+export type QueryQuizQuery = { __typename?: 'Query', quizQuestionAnswers?: { __typename?: 'QuizQuestionAnswerEntityResponseCollection', data: Array<{ __typename?: 'QuizQuestionAnswerEntity', attributes?: { __typename?: 'QuizQuestionAnswer', answer?: string | null, quiz_question?: { __typename?: 'QuizQuestionEntityResponse', data?: { __typename?: 'QuizQuestionEntity', attributes?: { __typename?: 'QuizQuestion', question?: string | null } | null } | null } | null } | null }> } | null };
+
+export type QuerySchduleQueryVariables = Exact<{
+  filters?: InputMaybe<ClassFiltersInput>;
+}>;
+
+
+export type QuerySchduleQuery = { __typename?: 'Query', classes?: { __typename?: 'ClassEntityResponseCollection', data: Array<{ __typename?: 'ClassEntity', attributes?: { __typename?: 'Class', date?: any | null, name?: string | null, description?: string | null, quiz?: { __typename?: 'QuizEntityResponse', data?: { __typename?: 'QuizEntity', id?: string | null, attributes?: { __typename?: 'Quiz', name?: string | null } | null } | null } | null } | null }> } | null };
 
 export type LoginMutationVariables = Exact<{
   input: UsersPermissionsLoginInput;
@@ -1891,6 +1937,9 @@ export type MeQueryVariables = Exact<{ [key: string]: never; }>;
 export type MeQuery = { __typename?: 'Query', me?: { __typename?: 'UsersPermissionsMe', id: string, email?: string | null, username: string, role?: { __typename?: 'UsersPermissionsMeRole', name: string } | null } | null };
 
 
+export const QueryDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"Query"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"ID"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"usersPermissionsUser"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"attributes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"CellPhoneNumber"}},{"kind":"Field","name":{"kind":"Name","value":"City"}},{"kind":"Field","name":{"kind":"Name","value":"Employer"}},{"kind":"Field","name":{"kind":"Name","value":"Ethnicity"}},{"kind":"Field","name":{"kind":"Name","value":"FirstName"}},{"kind":"Field","name":{"kind":"Name","value":"HomePhoneNumber"}},{"kind":"Field","name":{"kind":"Name","value":"LastName"}},{"kind":"Field","name":{"kind":"Name","value":"MaritalStatus"}},{"kind":"Field","name":{"kind":"Name","value":"MonthlyChildSupport"}},{"kind":"Field","name":{"kind":"Name","value":"StreetAddress"}},{"kind":"Field","name":{"kind":"Name","value":"WorkPhoneNumber"}},{"kind":"Field","name":{"kind":"Name","value":"Zipcode"}},{"kind":"Field","name":{"kind":"Name","value":"email"}}]}}]}}]}}]}}]} as unknown as DocumentNode<QueryQuery, QueryQueryVariables>;
+export const QueryQuizDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"QueryQuiz"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"filters"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"QuizQuestionAnswerFiltersInput"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"quizQuestionAnswers"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"filters"},"value":{"kind":"Variable","name":{"kind":"Name","value":"filters"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"attributes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"answer"}},{"kind":"Field","name":{"kind":"Name","value":"quiz_question"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"attributes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"question"}}]}}]}}]}}]}}]}}]}}]}}]} as unknown as DocumentNode<QueryQuizQuery, QueryQuizQueryVariables>;
+export const QuerySchduleDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"QuerySchdule"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"filters"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"ClassFiltersInput"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"classes"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"filters"},"value":{"kind":"Variable","name":{"kind":"Name","value":"filters"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"attributes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"date"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"quiz"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"data"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"attributes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}}]}},{"kind":"Field","name":{"kind":"Name","value":"id"}}]}}]}}]}}]}}]}}]}}]} as unknown as DocumentNode<QuerySchduleQuery, QuerySchduleQueryVariables>;
 export const LoginDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"login"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"input"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"UsersPermissionsLoginInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"login"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"input"},"value":{"kind":"Variable","name":{"kind":"Name","value":"input"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"user"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"role"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"type"}},{"kind":"Field","name":{"kind":"Name","value":"description"}}]}},{"kind":"Field","name":{"kind":"Name","value":"username"}}]}},{"kind":"Field","name":{"kind":"Name","value":"jwt"}}]}}]}}]} as unknown as DocumentNode<LoginMutation, LoginMutationVariables>;
 export const MeDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"me"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"me"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"username"}},{"kind":"Field","name":{"kind":"Name","value":"role"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}}]}}]}}]}}]} as unknown as DocumentNode<MeQuery, MeQueryVariables>;
 /** All built-in and custom scalars, mapped to their actual values */
@@ -2760,7 +2809,6 @@ export type PaginationArg = {
 
 export type Program = {
   __typename?: 'Program';
-  class?: Maybe<ClassEntityResponse>;
   classes?: Maybe<ClassRelationResponseCollection>;
   cohort?: Maybe<CohortEntityResponse>;
   completed?: Maybe<Scalars['Boolean']['output']>;
@@ -2799,7 +2847,6 @@ export type ProgramEntityResponseCollection = {
 
 export type ProgramFiltersInput = {
   and?: InputMaybe<Array<InputMaybe<ProgramFiltersInput>>>;
-  class?: InputMaybe<ClassFiltersInput>;
   classes?: InputMaybe<ClassFiltersInput>;
   cohort?: InputMaybe<CohortFiltersInput>;
   completed?: InputMaybe<BooleanFilterInput>;
@@ -2815,7 +2862,6 @@ export type ProgramFiltersInput = {
 };
 
 export type ProgramInput = {
-  class?: InputMaybe<Scalars['ID']['input']>;
   classes?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
   cohort?: InputMaybe<Scalars['ID']['input']>;
   completed?: InputMaybe<Scalars['Boolean']['input']>;
@@ -3051,13 +3097,21 @@ export type Quiz = {
   name?: Maybe<Scalars['String']['output']>;
   publishedAt?: Maybe<Scalars['DateTime']['output']>;
   quiz_questions?: Maybe<QuizQuestionRelationResponseCollection>;
-  quiz_result?: Maybe<QuizResultEntityResponse>;
+  quiz_results?: Maybe<QuizResultRelationResponseCollection>;
   updatedAt?: Maybe<Scalars['DateTime']['output']>;
 };
 
 
 export type QuizQuiz_QuestionsArgs = {
   filters?: InputMaybe<QuizQuestionFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  publicationState?: InputMaybe<PublicationState>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type QuizQuiz_ResultsArgs = {
+  filters?: InputMaybe<QuizResultFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
   publicationState?: InputMaybe<PublicationState>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -3089,7 +3143,7 @@ export type QuizFiltersInput = {
   or?: InputMaybe<Array<InputMaybe<QuizFiltersInput>>>;
   publishedAt?: InputMaybe<DateTimeFilterInput>;
   quiz_questions?: InputMaybe<QuizQuestionFiltersInput>;
-  quiz_result?: InputMaybe<QuizResultFiltersInput>;
+  quiz_results?: InputMaybe<QuizResultFiltersInput>;
   updatedAt?: InputMaybe<DateTimeFilterInput>;
 };
 
@@ -3097,7 +3151,7 @@ export type QuizInput = {
   name?: InputMaybe<Scalars['String']['input']>;
   publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
   quiz_questions?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
-  quiz_result?: InputMaybe<Scalars['ID']['input']>;
+  quiz_results?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
 };
 
 export type QuizQuestion = {
@@ -3105,6 +3159,7 @@ export type QuizQuestion = {
   createdAt?: Maybe<Scalars['DateTime']['output']>;
   publishedAt?: Maybe<Scalars['DateTime']['output']>;
   question?: Maybe<Scalars['String']['output']>;
+  quiz?: Maybe<QuizEntityResponse>;
   quiz_question_answers?: Maybe<QuizQuestionAnswerRelationResponseCollection>;
   updatedAt?: Maybe<Scalars['DateTime']['output']>;
 };
@@ -3123,6 +3178,7 @@ export type QuizQuestionAnswer = {
   createdAt?: Maybe<Scalars['DateTime']['output']>;
   isCorrectAnswer?: Maybe<Scalars['Boolean']['output']>;
   publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  quiz_question?: Maybe<QuizQuestionEntityResponse>;
   updatedAt?: Maybe<Scalars['DateTime']['output']>;
 };
 
@@ -3152,6 +3208,7 @@ export type QuizQuestionAnswerFiltersInput = {
   not?: InputMaybe<QuizQuestionAnswerFiltersInput>;
   or?: InputMaybe<Array<InputMaybe<QuizQuestionAnswerFiltersInput>>>;
   publishedAt?: InputMaybe<DateTimeFilterInput>;
+  quiz_question?: InputMaybe<QuizQuestionFiltersInput>;
   updatedAt?: InputMaybe<DateTimeFilterInput>;
 };
 
@@ -3159,6 +3216,7 @@ export type QuizQuestionAnswerInput = {
   answer?: InputMaybe<Scalars['String']['input']>;
   isCorrectAnswer?: InputMaybe<Scalars['Boolean']['input']>;
   publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  quiz_question?: InputMaybe<Scalars['ID']['input']>;
 };
 
 export type QuizQuestionAnswerRelationResponseCollection = {
@@ -3191,6 +3249,7 @@ export type QuizQuestionFiltersInput = {
   or?: InputMaybe<Array<InputMaybe<QuizQuestionFiltersInput>>>;
   publishedAt?: InputMaybe<DateTimeFilterInput>;
   question?: InputMaybe<StringFilterInput>;
+  quiz?: InputMaybe<QuizFiltersInput>;
   quiz_question_answers?: InputMaybe<QuizQuestionAnswerFiltersInput>;
   updatedAt?: InputMaybe<DateTimeFilterInput>;
 };
@@ -3198,6 +3257,7 @@ export type QuizQuestionFiltersInput = {
 export type QuizQuestionInput = {
   publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
   question?: InputMaybe<Scalars['String']['input']>;
+  quiz?: InputMaybe<Scalars['ID']['input']>;
   quiz_question_answers?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
 };
 
@@ -3219,6 +3279,7 @@ export type QuizResult = {
   quiz?: Maybe<QuizEntityResponse>;
   quiz_question_answers?: Maybe<QuizQuestionAnswerRelationResponseCollection>;
   updatedAt?: Maybe<Scalars['DateTime']['output']>;
+  users_permissions_user?: Maybe<UsersPermissionsUserEntityResponse>;
 };
 
 
@@ -3257,6 +3318,7 @@ export type QuizResultFiltersInput = {
   quiz?: InputMaybe<QuizFiltersInput>;
   quiz_question_answers?: InputMaybe<QuizQuestionAnswerFiltersInput>;
   updatedAt?: InputMaybe<DateTimeFilterInput>;
+  users_permissions_user?: InputMaybe<UsersPermissionsUserFiltersInput>;
 };
 
 export type QuizResultInput = {
@@ -3264,6 +3326,7 @@ export type QuizResultInput = {
   publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
   quiz?: InputMaybe<Scalars['ID']['input']>;
   quiz_question_answers?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  users_permissions_user?: InputMaybe<Scalars['ID']['input']>;
 };
 
 export type QuizResultRelationResponseCollection = {
@@ -3639,6 +3702,7 @@ export type UsersPermissionsUser = {
   interested_parties?: Maybe<InterestedPartyRelationResponseCollection>;
   provider?: Maybe<Scalars['String']['output']>;
   quiz_results?: Maybe<QuizResultRelationResponseCollection>;
+  quiz_statuses?: Maybe<QuizResultRelationResponseCollection>;
   role?: Maybe<UsersPermissionsRoleEntityResponse>;
   updatedAt?: Maybe<Scalars['DateTime']['output']>;
   username: Scalars['String']['output'];
@@ -3662,6 +3726,14 @@ export type UsersPermissionsUserInterested_PartiesArgs = {
 
 
 export type UsersPermissionsUserQuiz_ResultsArgs = {
+  filters?: InputMaybe<QuizResultFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  publicationState?: InputMaybe<PublicationState>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type UsersPermissionsUserQuiz_StatusesArgs = {
   filters?: InputMaybe<QuizResultFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
   publicationState?: InputMaybe<PublicationState>;
@@ -3719,6 +3791,7 @@ export type UsersPermissionsUserFiltersInput = {
   password?: InputMaybe<StringFilterInput>;
   provider?: InputMaybe<StringFilterInput>;
   quiz_results?: InputMaybe<QuizResultFiltersInput>;
+  quiz_statuses?: InputMaybe<QuizResultFiltersInput>;
   resetPasswordToken?: InputMaybe<StringFilterInput>;
   role?: InputMaybe<UsersPermissionsRoleFiltersInput>;
   updatedAt?: InputMaybe<DateTimeFilterInput>;
@@ -3754,6 +3827,7 @@ export type UsersPermissionsUserInput = {
   password?: InputMaybe<Scalars['String']['input']>;
   provider?: InputMaybe<Scalars['String']['input']>;
   quiz_results?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  quiz_statuses?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
   resetPasswordToken?: InputMaybe<Scalars['String']['input']>;
   role?: InputMaybe<Scalars['ID']['input']>;
   username?: InputMaybe<Scalars['String']['input']>;

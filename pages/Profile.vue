@@ -8,6 +8,10 @@
 
 <script setup>
 import { BellAlertIcon, ClockIcon, LifebuoyIcon, UserIcon } from '@heroicons/vue/24/outline'
+import { GET_PROFILE_INFO } from '~/graphql/users'
+import { getUserId } from "~/helper/getUserId";
+const userId = getUserId();
+console.log(userId)
 const emit = defineEmits(['addChild'])
 
 function buttonClick() {
@@ -94,4 +98,5 @@ const navigation = [
   { name: 'Profile', href: '/profile', current: true, icon: icons.profile },
   { name: 'Schedule', href: '/schedule', current: false, icon: icons.schedule },
 ]
+const { data } = await useAsyncQuery(GET_PROFILE_INFO, { id: userId })
 </script>
