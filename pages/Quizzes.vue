@@ -1,7 +1,7 @@
 <template>
   <Header class="hidden sm:block" :navigation="navigation" />
   <div class="md:flex md:items-center md:justify-between mt-10 ml-9 mb-5">
-    <QuestionModule />
+    <QuizModules />
   </div>
   <MobileNav :navigation="navigation" />
 </template>
