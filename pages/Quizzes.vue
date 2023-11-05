@@ -1,6 +1,7 @@
 <template>
   <Header class="hidden sm:block" :navigation="navigation" />
   <div class="md:flex md:items-center md:justify-between mt-10 ml-9 mb-5">
+    <QuestionModule />
   </div>
   <MobileNav :navigation="navigation" />
 </template>
@@ -28,11 +29,11 @@ const user = {
     'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
 }
 const navigation = [
-  { name: 'Alerts', href: '/alerts', current: true, icon: icons.alert },
+  { name: 'Alerts', href: '/alerts', current: false, icon: icons.alert },
   { name: 'Help', href: '/help', current: false, icon: icons.help },
   { name: 'Profile', href: '/profile', current: false, icon: icons.profile },
   { name: 'Schedule', href: '/schedule', current: false, icon: icons.schedule },
-  { name: 'Quizzes', href: '/quizzes', current: false, icon: icons.quizzes },
+  { name: 'Quizzes', href: '/quizzes', current: true, icon: icons.quizzes },
 ]
 
 const quizzes = [{
