@@ -25,28 +25,10 @@
         </div>
       </div>
 
-      <div class="sm:col-span-3">
-        <label for="country" class="block text-sm font-medium leading-6 text-gray-900">Country</label>
-        <div class="mt-2">
-          <select id="country" name="country" autocomplete="country-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
-            <option>United States</option>
-            <option>Canada</option>
-            <option>Mexico</option>
-          </select>
-        </div>
-      </div>
-
       <div class="col-span-full">
         <label for="street-address" class="block text-sm font-medium leading-6 text-gray-900">Street address</label>
         <div class="mt-2">
           <input v-model="profile.addressOne" type="text" name="street-address" id="street-address" autocomplete="street-address" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
-        </div>
-      </div>
-
-      <div class="col-span-full">
-        <label for="street-address" class="block text-sm font-medium leading-6 text-gray-900">Street address 2</label>
-        <div class="mt-2">
-          <input v-model="profile.addressTwo" type="text" name="street-address" id="street-address" autocomplete="street-address" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
         </div>
       </div>
 
@@ -109,7 +91,7 @@
       </div>
 
       <div>
-        <label for="phone-number" class="block text-sm font-medium leading-6 text-gray-900">Other Phone</label>
+        <label for="phone-number" class="block text-sm font-medium leading-6 text-gray-900">Alternative Contact Number</label>
         <div class="relative mt-2 rounded-md shadow-sm">
           <div class="absolute inset-y-0 left-0 flex items-center">
             <label for="country" class="sr-only">Country</label>
@@ -125,24 +107,15 @@
 
     </div>
 
-    
-      
     <div class="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-
-      <div>
-        <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email</label>
-        <div class="mt-2">
-          <input v-model="profile.email" type="email" name="email" id="email" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="you@example.com" />
-        </div>
-      </div>
-
-      <div class="w-full rounded overflow-hidden shadow-lg">
+      <div class="w-full rounded overflow-hidden shadow-lg mt-8">
         <div class="border-gray-200 bg-white px-4 py-5 sm:px-6">
           <h3 class="text-lg font-semibold leading-6 text-gray-900">Interested Party</h3>
-          <div v-for="party in profile.interestedParties" class="w-full rounded overflow-hidden shadow-lg">
+          <div v-for="party in profile.interestedParties" class="w-full rounded overflow-hidden">
             <div class="mt-3 w-full rounded overflow-hidden shadow-lg">
               <div class="border-gray-200 bg-white px-4 py-5 sm:px-6">
                 <div>
+                  <label for="location" class="block text-sm font-medium leading-6 text-gray-900">Name and Contact</label>
                   <div class="mt-3 mb-1 flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
                     <input v-model="party.name" type="text" name="clientName" id="clientName" autocomplete="clientName" class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="Name" />
                   </div>
@@ -155,7 +128,7 @@
                       <option>EU</option>
                     </select>
                   </div>
-                  <input v-model="party.phone" type="text" name="phone-number" id="phone-number" class="mb-2 block w-full rounded-md border-0 py-1.5 pl-16 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="+1 (555) 987-6543" />
+                  <input v-model="party.phone" type="text" name="phone-number" id="phone-number" class="mb-7 block w-full rounded-md border-0 py-1.5 pl-16 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="+1 (555) 987-6543" />
                   </div>
                   <label for="location" class="block text-sm font-medium leading-6 text-gray-900">Role</label>
                   <select id="location" name="location" class="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6">
@@ -174,17 +147,17 @@
       <div class="w-full rounded overflow-hidden shadow-lg">
         <div class="border-gray-200 bg-white px-4 py-5 sm:px-6">
           <h3 class="text-lg font-semibold leading-6 text-gray-900">Children</h3>
-          <div v-for="child in profile.children" class="w-full rounded overflow-hidden shadow-lg">
+          <div v-for="child in profile.children" class="w-full rounded overflow-hidden">
             <div class="mt-3 border-gray-200 bg-white px-4 py-5 sm:px-6">
               <div>
-                <div class="mt-3 mb-1 flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-                  <span class="ml-1 mt-2 block text-sm font-medium leading-6 text-gray-900">Name:</span>
+                <div class="mt-3 mb-7 flex rounded-md ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                  <span class="ml-1 mt-1.5 block text-sm font-medium leading-6 text-gray-900 pl-2">Name:</span>
                   <input v-model="child.name" type="text" name="childName" id="childName" autocomplete="childName" class="flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="Name" />
-                  <span class="mt-2 block text-sm font-medium leading-6 text-gray-900">Age:</span>
+                  <span class="mt-1.5 block text-sm font-medium leading-6 text-gray-900">Age:</span>
                   <input v-model="child.age" type="number" id="childAge" name="childAge" step="1" class="flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6">
                 </div>
-                <label for="username" class="block text-sm font-medium leading-6 text-gray-900">DOB</label>
-                <div class="mt-2">
+                <label for="username" class="block text-sm font-medium leading-6 text-gray-900">Date of Birth</label>
+                <div class="mt-2 mb-5">
                   <input class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" type="date" id="start" name="trip-start" v-model="child.dob" />
                   <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
                   </div>

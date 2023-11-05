@@ -64,8 +64,8 @@
     <Disclosure as="nav" class="bg-gray-800">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex h-16 justify-between">
-          <div class="ml-6 flex items-center">
-            <button type="button" class="relative rounded-full bg-white p-1 text-gray-500 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Sign Out</button>  
+          <div class="ml-1 flex items-center">
+            <button type="button" class="relative rounded-full bg-white pl-5 pr-5 pt-2 pb-2 text-gray-500 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Sign Out</button>
           </div>
           <div class="ml-6 flex items-center">
             <button type="button" class="relative rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
