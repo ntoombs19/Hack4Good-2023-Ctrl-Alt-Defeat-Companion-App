@@ -1,6 +1,6 @@
 <template>
   <Header class="hidden sm:block" :navigation="navigation" />
-  <div v-for="quiz in quizzes" class="md:flex md:items-center md:justify-between ml-9 mb-5">
+  <div v-for="quiz in quizzes" class="flex items-center justify-between">
     <QuizModules :quiz="quiz" />
   </div>
   <MobileNav :navigation="navigation" />
