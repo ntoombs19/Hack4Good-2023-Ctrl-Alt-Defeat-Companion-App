@@ -7,8 +7,8 @@
   </div>
   <form class="mx-5 flex items-center justify-center" action="">
     <div v-for="question in quiz">
-      <div v-for="quest in question">
-        <QuestionModule :question="quest" />
+      <div v-for="(quest, index) in question">
+        <QuestionModule :quiz-name="index" :question="quest" />
       </div>
     </div>
   </form>
