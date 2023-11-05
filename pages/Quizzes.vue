@@ -53,9 +53,9 @@ const { data } = await useAsyncQuery(GET_QUIZ, {
 let questions = [];
 let answerSet = [];
 
+
 for(let i = 0; i < data.value.quizQuestionAnswers.data.length; i++) {
   if(!questions.includes(data.value.quizQuestionAnswers.data[i].attributes.quiz_question.data.attributes.question)){
-    console.log("Pushing!");
     questions.push(data.value.quizQuestionAnswers.data[i].attributes.quiz_question.data.attributes.question);
   }
 }
@@ -78,11 +78,9 @@ for(let i = 0; i < questions.length; i++) {
 let content = [];
 
 for(let i = 0; i < questions.length; i++) {
-  let answer = data.value.quizQuestionAnswers.data[i];
-
   content.push(
       {
-          question: answer.attributes.quiz_question.data.attributes.question,
+          question: questions[i],
           choices: answerSet[i]
         }
     )
