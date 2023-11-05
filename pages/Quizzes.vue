@@ -40,6 +40,7 @@ const quizzes = [
     {
       name: 'Module 1',
       content: [{
+        name: 1,
         question: 'Choose the best definition for the term “People Skills” that your group discussed during Module 1 of Good Dads 2.0.',
         choices: [
           {
@@ -59,7 +60,9 @@ const quizzes = [
             isCorrect: false
           }
         ]
-      }, {
+      }, 
+      {
+        name: 2,
         question: "Which of the following best describes the traits of a good leader?",
         choices: [
           {
@@ -84,6 +87,7 @@ const quizzes = [
     {
       name: 'Module 1',
       content: [{
+        name: 1,
         question: 'Choose the best definition for the term “People Skills” that your group discussed during Module 1 of Good Dads 2.0.',
         choices: [
           {
@@ -105,6 +109,7 @@ const quizzes = [
         ]
       }, 
       {
+        name: 2,
         question: "Which of the following best describes the traits of a good leader?",
         choices: [
           {
