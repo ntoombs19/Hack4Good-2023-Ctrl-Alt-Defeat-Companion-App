@@ -33,9 +33,6 @@
       </li>
     </ul>
   </div>
-  <div class="p-5">
-    <!--<pre>{{data}}</pre>-->
-  </div>
   <MobileNav :navigation="navigation" />
 </template>
 
@@ -43,13 +40,17 @@
 import { BellAlertIcon, ClockIcon, LifebuoyIcon, UserIcon, NewspaperIcon } from '@heroicons/vue/24/outline'
 import { ChevronRightIcon } from '@heroicons/vue/20/solid'
 import {GET_SCHEDULE} from '~/graphql/schedule'
+import {GET_QUIZ_RESULTS} from "~/graphql/quiz";
+
+import { getUserId } from "~/helper/getUserId";
+const userId = getUserId();
 
 const statuses = {
   Upcoming: 'text-gray-500 bg-gray-100/10',
   Completed: 'text-green-400 bg-green-400/10',
 }
 
-const deployments = [
+let deployments = [
   {
     id: 1,
     href: '#',
@@ -120,7 +121,76 @@ const navigation = [
   { name: 'Quizzes', href: '/quizzes', current: false, icon: icons.quizzes },
 ]
 
-const { data } = await useAsyncQuery(GET_SCHEDULE)
-console.log(data)
+let results = await useAsyncQuery(GET_SCHEDULE);
+let scheduleInfo = results.data;
+let results2 = await useAsyncQuery(GET_QUIZ_RESULTS, {
+  filters: {
+    users_permissions_user: {
+      username: {
+        eq: "joeJohnson"
+      }
+    }
+  }
+})
+let quizResults = results2.data;
+console.log(scheduleInfo);
+console.log(quizResults);
+
+deployments = []
+
+for(let i = 1; i < scheduleInfo.value.classes.data.length; i++){
+  let status = '';
+  let quizCompleted = isQuizCompleted(scheduleInfo.value.classes.data[i].attributes.quiz);
+
+  let scheduleDate = new Date(scheduleInfo.value.classes.data[i].attributes.date);
+  let today = new Date();
+  let upcomingDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 7);
+  let classDate = new Date(scheduleInfo.value.classes.data[i].attributes.date);
+
+  if(quizCompleted){
+    status = 'Completed'
+  }
+  else if(classDate.getTime() > upcomingDate.getTime()){
+    status = 'Upcoming';
+  }else{
+    status = 'Take Quiz';
+  }
+
+  deployments.push(
+      {
+        id: i,
+        href: '#',
+        cohort: 'Cohort',
+        date: scheduleDate.toISOString().split('T')[0],
+        time: '10:00am',
+        status: status,
+        statusText: 'Due 01/01/2024',
+        description: 'Quiz',
+        completed: quizCompleted,
+      });
+
+  deployments.sort(function(a, b) {
+    return new Date(a.date) < new Date(b.date);
+  });
+}
+
+function isQuizCompleted(quiz){
+  var quizName = '';
+  if(quiz && quiz.data){
+    quizName = quiz.data.attributes.name;
+    console.log("Quiz name is " +  quiz.data.attributes.name);
+  }
+  if(quizResults && quizResults.value){
+    for(let i = 0; i < quizResults.value.quizResults.data.length; i++){
+      if(quizResults.value.quizResults.data[i].attributes.completed &&
+          quizResults.value.quizResults.data[i].attributes.quiz.data.attributes.name == quizName &&
+          quizResults.value.quizResults.data[i].attributes.users_permissions_user.data.attributes.username == 'joeJohnson'){
+        return true;
+      }
+    }
+  }
+  return false;
+}
+
 
 </script>
