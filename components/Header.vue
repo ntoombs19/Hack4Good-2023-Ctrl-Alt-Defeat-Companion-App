@@ -43,7 +43,7 @@
                 <MenuItem v-slot="{ active }">
                   <a href="#" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">Settings</a>
                 </MenuItem>
-                <MenuItem v-slot="{ active }">
+                <MenuItem @click="logOut" v-slot="{ active }">
                   <a href="#" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">Sign out</a>
                 </MenuItem>
               </MenuItems>
@@ -65,7 +65,7 @@
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex h-16 justify-between">
           <div class="ml-1 flex items-center">
-            <button type="button" class="relative rounded-full bg-light-green pl-5 pr-5 pt-2 pb-2 text-white hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Sign Out</button>
+            <button @click="logOut" type="button" class="relative rounded-full bg-light-green pl-5 pr-5 pt-2 pb-2 text-white hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Sign Out</button>
           </div>
           <div class="ml-6 flex items-center">
             <NuxtImg src="http://127.0.0.1:1337/Uploads/WHITE.png" class="max-h-11 pr-5" />
@@ -87,6 +87,14 @@ const emit = defineEmits(['addChild'])
 
 const props = defineProps(['navigation'])
 
+const { onLogout } = useApollo();
+
+const logOut = async () => {
+  console.log('Logout clicked')
+  onLogout().then(() => {
+    location.reload();
+  });
+}
 
 const { data } = await useAsyncQuery(GET_PROFILE_INFO, { id: userId })
 </script>

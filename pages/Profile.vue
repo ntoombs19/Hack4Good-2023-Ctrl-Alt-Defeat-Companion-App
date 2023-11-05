@@ -4,7 +4,7 @@
     <div class="p-5">
       <ProfileForm @add-interested-party="onAddInterestedParty" @add-child="addChild" :profile="profile" />
     </div>
-    <button type="button" class="ml-10 rounded-md bg-red-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">Log Out</button>
+    <button type="button" @click="logOut" class="ml-10 rounded-md bg-red-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">Log Out</button>
     <MobileNav :navigation="navigation" />
   </div>
 </template>
@@ -33,6 +33,15 @@ const addChild = () => {
     contactStatus: [],
   };
   profile.value.children.push(newChild);
+}
+
+const { onLogout } = useApollo();
+
+const logOut = async () => {
+  console.log('Logout clicked')
+  onLogout().then(() => {
+    location.reload();
+  });
 }
 
 const onAddInterestedParty = () => {
