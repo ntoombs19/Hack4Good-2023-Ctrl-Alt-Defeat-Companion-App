@@ -1,7 +1,7 @@
 <template>
   <div class="mb-20"></div>
   <div class="fixed bottom-0 left-0 z-50 w-full h-16 border-t border-gray-200 bg-dark-green">
-    <div class="grid h-full max-w-sm grid-cols-5 mx-auto font-medium">
+    <div class="sm:hidden grid h-full max-w-sm grid-cols-5 mx-auto font-medium">
       <div v-for="item in navigation" :key="item.name" :href="item.href" :class="[item.current ? 'border-indigo-500 text-white' : 'border-transparent text-white hover:border-gray-300 hover:text-gray-700', 'inline-flex items-center border-b-2 pt-1 text-sm font-medium']" :aria-current="item.current ? 'page' : undefined">
         <NuxtLink :to="item.href">
           <button type="button" class="inline-flex flex-col items-center justify-center px-5 hover:bg-dark-green-hover">
