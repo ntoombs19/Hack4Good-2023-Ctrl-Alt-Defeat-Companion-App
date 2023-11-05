@@ -50,50 +50,7 @@ const statuses = {
   Completed: 'text-green-400 bg-green-400/10',
 }
 
-let deployments = [
-  {
-    id: 1,
-    href: '#',
-    cohort: 'Cohort',
-    date: 'Tues, Nov 7',
-    time: '10:00am',
-    status: 'Upcoming',
-    statusText: 'Due 01/01/2024',
-    description: 'Quiz',
-    completed: false,
-  },
-  {
-    id: 2,
-    href: '#',
-    cohort: 'Cohort',
-    date: 'Tues, Oct 31',
-    time: '10:00am',
-    status: 'Take Quiz',
-    statusText: 'Due 01/01/2024',
-    description: 'Quiz',
-    completed: false,
-  },
-  {
-    id: 3,
-    href: '#',
-    cohort: 'Cohort',
-    date: 'Tues, Oct 24',
-    time: '10:00am',
-    status: 'Completed',
-    statusText: 'Due 01/01/2024',
-    completed: true,
-  },
-  {
-    id: 4,
-    href: '#',
-    cohort: 'Cohort',
-    date: 'Tues, Oct 17',
-    time: '6:00pm',
-    status: 'Completed',
-    statusText: 'Due 01/01/2024',
-    completed: true,
-  },
-]
+let deployments = [];
 
 const icons = reactive({
   alert: BellAlertIcon,
@@ -159,7 +116,7 @@ for(let i = 1; i < scheduleInfo.value.classes.data.length; i++){
   deployments.push(
       {
         id: i,
-        href: '#',
+        href: '/quizzes',
         cohort: 'Cohort',
         date: scheduleDate.toISOString().split('T')[0],
         time: '10:00am',

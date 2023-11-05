@@ -8,7 +8,7 @@
 
 <script setup>
 import { BellAlertIcon, ClockIcon, LifebuoyIcon, UserIcon, NewspaperIcon } from '@heroicons/vue/24/outline'
-import GET_SCHEDULE from "~/graphql/schedule/getSchedule";
+import {GET_QUIZ} from "~/graphql/quiz";
 
 const icons = reactive({
   alert: BellAlertIcon,
@@ -36,111 +36,14 @@ const navigation = [
   { name: 'Quizzes', href: '/quizzes', current: true, icon: icons.quizzes },
 ]
 
-const quizzes = [
-    {
-      name: 'Module 1',
-      content: [{
-        name: 1,
-        question: 'Choose the best definition for the term “People Skills” that your group discussed during Module 1 of Good Dads 2.0.',
-        choices: [
-          {
-            content: "Knowing a large number of people and having lots of friends",
-            isCorrect: false
-          }, 
-          {
-            content: "Knowing the personalities, interests, desires, strengths and weaknesses of those around you.",
-            isCorrect: true
-          }, 
-          {
-            content: "Knowing who likes you and who doesn’t like you.",
-            isCorrect: false
-          }, 
-          {
-            content: "Knowing the right thing to say all the time.",
-            isCorrect: false
-          }
-        ]
-      }, 
-      {
-        name: 2,
-        question: "Which of the following best describes the traits of a good leader?",
-        choices: [
-          {
-            content: "Sticking to the plan.",
-            isCorrect: false
-          }, 
-          {
-            content: "Commitment",
-            isCorrect: false
-          }, 
-          {
-            content: "Knowing which tool to use for a given job.",
-            isCorrect: false
-          }, 
-          {
-            content: "Knowing the right thing to say all the time.",
-            isCorrect: true
-          }
-        ]
-      }]
-    },
-    {
-      name: 'Module 1',
-      content: [{
-        name: 1,
-        question: 'Choose the best definition for the term “People Skills” that your group discussed during Module 1 of Good Dads 2.0.',
-        choices: [
-          {
-            content: "Knowing a large number of people and having lots of friends",
-            isCorrect: false
-          }, 
-          {
-            content: "Knowing the personalities, interests, desires, strengths and weaknesses of those around you.",
-            isCorrect: true
-          }, 
-          {
-            content: "Knowing who likes you and who doesn’t like you.",
-            isCorrect: false
-          }, 
-          {
-            content: "Knowing the right thing to say all the time.",
-            isCorrect: false
-          }
-        ]
-      }, 
-      {
-        name: 2,
-        question: "Which of the following best describes the traits of a good leader?",
-        choices: [
-          {
-            content: "Sticking to the plan.",
-            isCorrect: false
-          }, 
-          {
-            content: "Commitment",
-            isCorrect: false
-          }, 
-          {
-            content: "Knowing which tool to use for a given job.",
-            isCorrect: false
-          }, 
-          {
-            content: "Knowing the right thing to say all the time.",
-            isCorrect: true
-          }
-        ]
-      }]
-    },
-]
+const quizzes = [];
 
-const { data } = await useAsyncQuery(GET_SCHEDULE, {
+const { data } = await useAsyncQuery(GET_QUIZ, {
   filters: {
-    program: {
-      cohort: {
-        users: {
-          username: {
-            eq: "joeJohnson"
-          }
+    quiz_question: {
+      quiz: {
+        id: {
+          eq: 1
         }
       }
     }
@@ -148,5 +51,42 @@ const { data } = await useAsyncQuery(GET_SCHEDULE, {
 })
 
 console.log(data)
+
+let questions = [];
+let answerSet = [];
+
+for(let i = 0; i < data.value.quizQuestionAnswers.data.length; i++) {
+  if(!questions.includes(data.value.quizQuestionAnswers.data[i].attributes.quiz_question.data.attributes.question)){
+    console.log("Pushing!");
+    questions.push(data.value.quizQuestionAnswers.data[i].attributes.quiz_question.data.attributes.question);
+  }
+}
+
+//This code was written at 4am
+for(let i = 0; i < questions.length; i++) {
+  answerSet.push([]);
+  for(let ii = 0; ii < data.value.quizQuestionAnswers.data.length; ii++){
+    if(questions[i] == data.value.quizQuestionAnswers.data[ii].attributes.quiz_question.data.attributes.question){
+      answerSet[i].push(
+          {
+            content: data.value.quizQuestionAnswers.data[ii].attributes.answer,
+            isCorrect: data.value.quizQuestionAnswers.data[ii].attributes.isCorrectAnswer
+          });
+    }
+  }
+}
+
+for(let i = 0; i < questions.length; i++) {
+  let answer = data.value.quizQuestionAnswers.data[i];
+  quizzes.push(
+      {
+        name: "Module 1",
+        content: [{
+          question: answer.attributes.quiz_question.data.attributes.question,
+          choices: answerSet[i]
+        }]
+      }
+  )
+}
 
 </script>

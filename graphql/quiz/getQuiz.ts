@@ -6,6 +6,7 @@ export default graphql(`
             data {
                 attributes {
                     answer
+                    isCorrectAnswer
                     quiz_question {
                         data {
                             attributes {
