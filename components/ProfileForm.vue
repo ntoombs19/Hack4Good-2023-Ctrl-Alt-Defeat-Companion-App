@@ -214,19 +214,7 @@
           </div>
         </div>
       </div>
-
-      <!-- <div>
-        {{ profile.maritalStatus }}
-      </div>
-      <div>
-        {{ profile.ethnicity }}
-      </div>
-      <div>
-        {{ profile.ethnicity }}
-      </div> -->
-    </div>
-      
-    
+    </div>    
   </form>
 </template>
 
