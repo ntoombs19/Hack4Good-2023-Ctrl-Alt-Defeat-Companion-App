@@ -1,6 +1,7 @@
 <template>
   <Header class="hidden sm:block" :navigation="navigation" />
-  <div class="md:flex md:items-center md:justify-between mt-10 ml-9 mb-5">
+  <div v-for="quiz in quizzes" class="mx-5 flex items-center justify-center">
+    <QuizModules :quiz="quiz" />
   </div>
   <MobileNav :navigation="navigation" />
 </template>
@@ -28,57 +29,109 @@ const user = {
     'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
 }
 const navigation = [
-  { name: 'Alerts', href: '/alerts', current: true, icon: icons.alert },
+  { name: 'Alerts', href: '/alerts', current: false, icon: icons.alert },
   { name: 'Help', href: '/help', current: false, icon: icons.help },
   { name: 'Profile', href: '/profile', current: false, icon: icons.profile },
   { name: 'Schedule', href: '/schedule', current: false, icon: icons.schedule },
-  { name: 'Quizzes', href: '/quizzes', current: false, icon: icons.quizzes },
+  { name: 'Quizzes', href: '/quizzes', current: true, icon: icons.quizzes },
 ]
 
-const quizzes = [{
-  name: 'Module 1',
-  content: [{
-    question: 'Choose the best definition for the term “People Skills” that your group discussed during Module 1 of Good Dads 2.0.',
-    choices: [
-      {
-        content: "Knowing a large number of people and having lots of friends",
-        isCorrect: false
+const quizzes = [
+    {
+      name: 'Module 1',
+      content: [{
+        name: 1,
+        question: 'Choose the best definition for the term “People Skills” that your group discussed during Module 1 of Good Dads 2.0.',
+        choices: [
+          {
+            content: "Knowing a large number of people and having lots of friends",
+            isCorrect: false
+          }, 
+          {
+            content: "Knowing the personalities, interests, desires, strengths and weaknesses of those around you.",
+            isCorrect: true
+          }, 
+          {
+            content: "Knowing who likes you and who doesn’t like you.",
+            isCorrect: false
+          }, 
+          {
+            content: "Knowing the right thing to say all the time.",
+            isCorrect: false
+          }
+        ]
       }, 
       {
-        content: "Knowing the personalities, interests, desires, strengths and weaknesses of those around you.",
-        isCorrect: true
+        name: 2,
+        question: "Which of the following best describes the traits of a good leader?",
+        choices: [
+          {
+            content: "Sticking to the plan.",
+            isCorrect: false
+          }, 
+          {
+            content: "Commitment",
+            isCorrect: false
+          }, 
+          {
+            content: "Knowing which tool to use for a given job.",
+            isCorrect: false
+          }, 
+          {
+            content: "Knowing the right thing to say all the time.",
+            isCorrect: true
+          }
+        ]
+      }]
+    },
+    {
+      name: 'Module 1',
+      content: [{
+        name: 1,
+        question: 'Choose the best definition for the term “People Skills” that your group discussed during Module 1 of Good Dads 2.0.',
+        choices: [
+          {
+            content: "Knowing a large number of people and having lots of friends",
+            isCorrect: false
+          }, 
+          {
+            content: "Knowing the personalities, interests, desires, strengths and weaknesses of those around you.",
+            isCorrect: true
+          }, 
+          {
+            content: "Knowing who likes you and who doesn’t like you.",
+            isCorrect: false
+          }, 
+          {
+            content: "Knowing the right thing to say all the time.",
+            isCorrect: false
+          }
+        ]
       }, 
       {
-        content: "Knowing who likes you and who doesn’t like you.",
-        isCorrect: false
-      }, 
-      {
-        content: "Knowing the right thing to say all the time.",
-        isCorrect: false
-      }
-    ]
-  }, {
-    question: "Which of the following best describes the traits of a good leader?",
-    choices: [
-      {
-        content: "Sticking to the plan.",
-        isCorrect: false
-      }, 
-      {
-        content: "Commitment",
-        isCorrect: false
-      }, 
-      {
-        content: "Knowing which tool to use for a given job.",
-        isCorrect: false
-      }, 
-      {
-        content: "Knowing the right thing to say all the time.",
-        isCorrect: true
-      }
-    ]
-  }]
-},]
+        name: 2,
+        question: "Which of the following best describes the traits of a good leader?",
+        choices: [
+          {
+            content: "Sticking to the plan.",
+            isCorrect: false
+          }, 
+          {
+            content: "Commitment",
+            isCorrect: false
+          }, 
+          {
+            content: "Knowing which tool to use for a given job.",
+            isCorrect: false
+          }, 
+          {
+            content: "Knowing the right thing to say all the time.",
+            isCorrect: true
+          }
+        ]
+      }]
+    },
+]
 
 const { data } = await useAsyncQuery(GET_SCHEDULE, {
   filters: {

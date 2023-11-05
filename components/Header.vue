@@ -15,7 +15,7 @@
         
         <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
           <div class="flex flex-shrink-0 items-center">
-            <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company" />
+            <NuxtImg src="http://127.0.0.1:1337/uploads/WHITE.png" class="max-h-12"/>
           </div>
           <div class="hidden sm:ml-6 sm:block">
             <div class="flex space-x-4">
@@ -61,18 +61,14 @@
   </Disclosure>
   </div>
   <div class="sm:hidden">
-    <Disclosure as="nav" class="bg-gray-800">
+    <Disclosure as="nav" class="bg-dark-green">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex h-16 justify-between">
-          <div class="ml-6 flex items-center">
-            <button type="button" class="relative rounded-full bg-white p-1 text-gray-500 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Sign Out</button>  
+          <div class="ml-1 flex items-center">
+            <button type="button" class="relative rounded-full bg-light-green pl-5 pr-5 pt-2 pb-2 text-white hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Sign Out</button>
           </div>
           <div class="ml-6 flex items-center">
-            <button type="button" class="relative rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
-              <span class="absolute -inset-1.5" />
-              <span class="sr-only">View notifications</span>
-              <UserIcon class="h-6 w-6" aria-hidden="true" />
-            </button>
+            <NuxtImg src="http://127.0.0.1:1337/Uploads/WHITE.png" class="max-h-11 pr-5" />
           </div>
         </div>
       </div>
