@@ -5,10 +5,10 @@
       <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">{{ quiz.name }}</h2>
     </div>
   </div>
-  <form class="mx-5 flex items-center justify-center" action="">
+  <form  @submit.prevent class="mx-5 flex items-center justify-center" action="">
     <div v-for="question in quiz">
       <div v-for="(quest, index) in question">
-        <QuestionModule :quiz-name="index" :question="quest" />
+        <QuestionModule @test-event="testEvent" :quiz-name="index" :question="quest" />
       </div>
     </div>
   </form>
@@ -21,6 +21,7 @@
 
 <script setup>
 const props = defineProps(['quiz'])
+const emit = defineEmits(['testEvent'])
 
 
 function submitQuiz(){
