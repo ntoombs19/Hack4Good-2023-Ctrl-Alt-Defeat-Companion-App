@@ -1,7 +1,7 @@
 import {graphql} from "~/types/gql";
 
 export default graphql(`
-    query QuerySchdule($filters: ClassFiltersInput) {
+    query QuerySchedule($filters: ClassFiltersInput) {
         classes(filters: $filters) {
             data {
                 attributes {

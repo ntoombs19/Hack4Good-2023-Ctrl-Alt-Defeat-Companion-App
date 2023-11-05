@@ -83,7 +83,7 @@
 <script setup>
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
 import { Bars3Icon, BellIcon, UserIcon, XMarkIcon } from '@heroicons/vue/24/outline'
-import { GET_PROFILE_INFO } from '~/graphql/users'
+import GET_PROFILE_INFO from '~/graphql/profile/getProfileInfo'
 import { getUserId } from "~/helper/getUserId";
 const userId = getUserId();
 console.log(userId)

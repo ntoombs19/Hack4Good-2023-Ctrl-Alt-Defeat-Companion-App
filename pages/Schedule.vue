@@ -42,7 +42,7 @@
 <script setup>
 import { BellAlertIcon, ClockIcon, LifebuoyIcon, UserIcon, NewspaperIcon } from '@heroicons/vue/24/outline'
 import { ChevronRightIcon } from '@heroicons/vue/20/solid'
-import {GET_SCHEDULE} from '~/graphql/users'
+import {GET_SCHEDULE} from '~/graphql/schedule'
 
 const statuses = {
   Upcoming: 'text-gray-500 bg-gray-100/10',
