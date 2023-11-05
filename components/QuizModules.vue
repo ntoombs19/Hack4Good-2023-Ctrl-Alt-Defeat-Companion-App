@@ -13,10 +13,28 @@
     </div>
   </form>
 
+  <div>
+    <button v-on:click="submitQuiz" class="mx-5 flex justify-center mt-3"> Submit</button>
+  </div>
+
 </template>
 
 <script setup>
 const props = defineProps(['quiz'])
+
+
+function submitQuiz(){
+  console.log("Submit quiz");
+  console.log(props);
+
+  for(let i = 0; i < props.quiz.content.length; i++){
+    console.log(props.quiz.content[i]);
+  }
+}
+
+function testEvent(){
+  console.log("Test event");
+}
 
 </script>
 

@@ -50,8 +50,6 @@ const { data } = await useAsyncQuery(GET_QUIZ, {
   }
 })
 
-console.log(data)
-
 let questions = [];
 let answerSet = [];
 
@@ -70,23 +68,31 @@ for(let i = 0; i < questions.length; i++) {
       answerSet[i].push(
           {
             content: data.value.quizQuestionAnswers.data[ii].attributes.answer,
-            isCorrect: data.value.quizQuestionAnswers.data[ii].attributes.isCorrectAnswer
+            isCorrect: data.value.quizQuestionAnswers.data[ii].attributes.isCorrectAnswer,
+            chosen: false
           });
     }
   }
 }
 
+let content = [];
+
 for(let i = 0; i < questions.length; i++) {
   let answer = data.value.quizQuestionAnswers.data[i];
-  quizzes.push(
+
+  content.push(
       {
-        name: "Module 1",
-        content: [{
           question: answer.attributes.quiz_question.data.attributes.question,
           choices: answerSet[i]
-        }]
-      }
-  )
+        }
+    )
 }
+
+quizzes.push(
+    {
+      name: "Module 1",
+      content: content
+    }
+)
 
 </script>

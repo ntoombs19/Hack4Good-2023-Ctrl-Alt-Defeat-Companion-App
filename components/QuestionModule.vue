@@ -12,6 +12,14 @@
 
 <script setup>
 const props = defineProps(['question', 'quizName'])
+const emit = defineEmits(['testEvent'])
+
+let answer = '';
+
+function sendAnswerToModule(){
+  console.log("Call emit");
+  emit('testEvent');
+}
 
 </script>
 
