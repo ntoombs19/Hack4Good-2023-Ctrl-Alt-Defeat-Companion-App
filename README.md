@@ -20,7 +20,7 @@ Team Members
 <img src="https://lh3.googleusercontent.com/u/0/drive-viewer/AK7aPaCCpAZrWIstUWl0LvA-7ldsQaaAbrw88kYSoCM-NXKgiBRWFKSLmbjtav1JNM9QtBpVXBjirmqhBOJ9TAIh5WOudisQ=w2880-h1558" alt="profile" width="300"/>
 
 ## Schedule Page
-<img src="https://lh3.googleusercontent.com/u/0/drive-viewer/AK7aPaDCFbH1nD95Luq7In_E240Qm44u1EqIuLkUd9UH4T5zY7Yu_tTpQFzGCLxoxdiW0wCkucDf4aVTgqZVmB2UwCUe-l3JeA=w2880-h155)" alt="schedule" width="300"/>
+<img src="https://lh3.googleusercontent.com/u/0/drive-viewer/AK7aPaDCFbH1nD95Luq7In_E240Qm44u1EqIuLkUd9UH4T5zY7Yu_tTpQFzGCLxoxdiW0wCkucDf4aVTgqZVmB2UwCUe-l3JeA=w2880-h1558" alt="schedule" width="300"/>
 
 ## Quizzes
 <img src="https://lh3.googleusercontent.com/u/0/drive-viewer/AK7aPaBTcqRFKHocvXxhAQKzo60lyQkbBEU4XiCVKde9SLo8tDIXclhciccP2J-MM1Kwwl0PO5VQ2tdiH8mqtnKkUG7T8cavKA=w2880-h1558" alt="quizzes" width="300"/>
