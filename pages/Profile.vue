@@ -10,7 +10,7 @@
 </template>
 
 <script setup>
-import { BellAlertIcon, ClockIcon, LifebuoyIcon, UserIcon } from '@heroicons/vue/24/outline'
+import { BellAlertIcon, NewspaperIcon, ClockIcon, LifebuoyIcon, UserIcon } from '@heroicons/vue/24/outline'
 import { GET_PROFILE_INFO } from '~/graphql/users'
 import { getUserId } from "~/helper/getUserId";
 const userId = getUserId();
@@ -53,6 +53,7 @@ const icons = reactive({
   help: LifebuoyIcon,
   profile: UserIcon,
   schedule: ClockIcon,
+  quizzes: NewspaperIcon,
 })
 
 const currentPage = {
@@ -115,6 +116,7 @@ const navigation = [
   { name: 'Help', href: '/help', current: false, icon: icons.help },
   { name: 'Profile', href: '/profile', current: true, icon: icons.profile },
   { name: 'Schedule', href: '/schedule', current: false, icon: icons.schedule },
+  { name: 'Quizzes', href: '/quizzes', current: false, icon: icons.quizzes },
 ]
 const { data } = await useAsyncQuery(GET_PROFILE_INFO, { id: userId })
 </script>

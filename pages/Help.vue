@@ -66,13 +66,14 @@
   <MobileNav :navigation="navigation" />
 </template>
 <script setup>
-import { BellAlertIcon, ClockIcon, LifebuoyIcon, UserIcon, PaperClipIcon, ArrowTopRightOnSquareIcon } from '@heroicons/vue/24/outline'
+import { BellAlertIcon, ClockIcon, LifebuoyIcon, UserIcon, NewspaperIcon, ArrowTopRightOnSquareIcon } from '@heroicons/vue/24/outline'
 
 const icons = reactive({
   alert: BellAlertIcon,
   help: LifebuoyIcon,
   profile: UserIcon,
   schedule: ClockIcon,
+  quizzes: NewspaperIcon,
 })
 
 const currentPage = {
@@ -90,5 +91,6 @@ const navigation = [
   { name: 'Help', href: '/help', current: true, icon: icons.help },
   { name: 'Profile', href: '/profile', current: false, icon: icons.profile },
   { name: 'Schedule', href: '/schedule', current: false, icon: icons.schedule },
+  { name: 'Quizzes', href: '/quizzes', current: false, icon: icons.quizzes },
 ]
 </script>
