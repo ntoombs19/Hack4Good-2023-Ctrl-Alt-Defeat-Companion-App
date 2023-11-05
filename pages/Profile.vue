@@ -96,20 +96,21 @@ const profile = ref({
     ]
   }],
   childSupportPerMonth: 200,
-  maritalStatus: {
-    married: false,
-    engaged: false,
-    single: false,
-    widowed: false
-  },
-  ethnicity: {
-    americanIndian: false,
-    asian: false,
-    black: false,
-    hispanic: false,
-    nativeHawaiianIslander: false,
-    white: false,
-  }
+  maritalStatus: [
+    'single',
+    'married',
+    'engaged',
+    'widowed',
+  ],
+  
+  ethnicity: [
+    'American Indian',
+    'Asian',
+    'Black',
+    'White',
+    'Hispanic',
+    'Native Hawaiian / Pacific Islander',
+  ]
 })
 const navigation = [
   { name: 'Alerts', href: '/alerts', current: false, icon: icons.alert },
